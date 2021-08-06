@@ -1,10 +1,4 @@
-import {
-  Entity,
-  PrimaryColumn,
-  Column,
-} from "typeorm";
-
-
+import { Entity, PrimaryColumn, Column } from "typeorm";
 
 @Entity("accounts")
 
@@ -21,6 +15,17 @@ class User {
   @Column()
   player_name!: string;
 
+  @Column()
+  rank!: number;
+
+  @Column()
+  gp!: number;
+
+  @Column()
+  money!: number;
+
+  @Column()
+  online!: boolean;
 }
 
 export { User };

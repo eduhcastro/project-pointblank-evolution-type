@@ -10,8 +10,9 @@ import { createServer } from 'http'
 import { Server } from 'socket.io'
 import cors from 'cors'
 import path from 'path'
+import { keySession } from './server.config'
 import routes from './routes'
-import "./database";
+import "./database"
 
 /*
  * Variaveis locais
@@ -20,7 +21,7 @@ const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer)
 const ioSession = expressSession({
-  secret: 'castroms2021pointblank',
+  secret: keySession,
   resave: false,
   saveUninitialized: false
 })
@@ -33,7 +34,7 @@ io.use(expressSharedSession(ioSession))
 app.use(cors())
 app.use(express.static('src/web/static'))
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
 webSocketServices(io)
