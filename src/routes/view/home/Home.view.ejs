@@ -1,0 +1,135 @@
+<head>
+  <title>PointBlank Future</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href='/css/cssNewNew.css?v=10'/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
+  <link rel="stylesheet" href="/vendor/emojionearea/emojionearea.min.css">
+  <script type="text/javascript" src="/vendor/emojionearea/emojionearea.min.js"></script>
+
+</head>
+<body>
+  <div id="router-container">
+     <div class="viewport normal-design ">
+        <div class="sc-bTDOke dXiuJH winter--snow_background">
+           <button class="sc-dsXzNU iqNwfp burger">
+              <div></div>
+              <div></div>
+              <div></div>
+           </button>
+           <div class="sc-lbVvki ghCdOs">
+              <div class="sc-dFRpbK bFgzLZ"><a aria-current="page" class="logo active" href="/">
+                 <img src="https://www.pikpng.com/pngl/b/54-540351_point-blank-pointblank-png-clipart.png" alt="Gamdom Logo" width="50"></a>
+              </div>
+              <div class="sc-hOPeYd eXirsP" style="border-bottom: solid; background-color: transparent;"><a href="#">Trades</a></div>
+           </div>
+           <% if (!user.name) { %>
+           <div class="sc-fXazdy UjHkE">
+              <div class="sc-fuISkM cHQuCr">
+                 <div class="sc-cOifOu haQoIp" style="background-color: transparent;"><button class="sc-hTRkXV sc-hhIiOg sc-eirqVv enlJuL iwisNA dSzotL" >Login</button></div>
+              </div>
+           </div>
+           <% }else{ %>
+           <div class="sc-fXazdy UjHkE">
+              <div class="sc-fuISkM cHQuCr">
+                 <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32" class="rounded-circle"/>
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                       <li><a class="dropdown-item" href="#">New project...</a></li>
+                       <li><a class="dropdown-item" href="#">Settings</a></li>
+                       <li><a class="dropdown-item" href="#">Profile</a></li>
+                       <li>
+                          <hr class="dropdown-divider" />
+                       </li>
+                       <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <% }%>
+        </div>
+        <div class="site_content site_content--winter">
+           <div class="section_left" tabindex="0">
+              <div class="chat_section">
+                 <div class="chat_rooms ">
+                    <div class="chat_rooms_head">
+                       <div class="chat_lang">
+                       </div>
+                    </div>
+                    <a class="chat_collapse"><span class="icon-angle-double-left "></span></a>
+                    <div class="chatting_chat_msgs">
+                       <div class="top-gradient"></div>
+                       <div class="chat_input_hold">
+                          <div class="chat_msgs">
+                             <ul class="messages" style="padding-left: 0;">
+                             </ul>
+                          </div>
+                          <div class="chat_input_contain">
+                             <input type="text" class="chat_input" id="teste1234" maxlength="200" placeholder="Chat"><span class="chat_send"><i class="fas fa-paper-plane"></i>
+                             </span>
+                             <div><a class="emoji"><i class="fas fa-times"></i>
+                                </a>
+                             </div>
+                          </div>
+                          <div class="spinner-pre-loader"></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="section_right">
+              <!-- CONTENTE -->
+              <div class="sc-dprnXS eyUYsL">
+                 <div class="sc-kMGnOH gIgWXs">
+                    <div class="sc-kqfmhM fOrnJt">
+                       <div class="sc-ffgBur OeZLy" style="display: flex;
+                          flex-wrap: wrap;">
+
+                          <% if (user.name) { %>
+                          <div class="sc-eLSyJA lJvlA" style=" flex: 0 0 25%;">
+                             <a href="/app/trade/create">
+                                <div class="item">
+                                   <div class="modal-items-evolution add" data-toggle="tooltip" data-html="true" title="<b style='color: #ffc659'>Create Trade</b><br><span>Create your trade now and trade items with another user!</span>">
+                                      <div class="title">
+                                         <h3 style="color: rgb(0 2 0);">Create Trade</h3>
+                                      </div>
+                                      <div class="modal-items-item" style="background: rgb(239 239 239 / 0%);">
+                                         <img src="/images/more-icon-png-7.jpg" class="item" />
+                                      </div>
+                                      <!--  <div class="css-12tf9og" style="background: rgb(214 214 214);color: rgb(155, 134, 95);">
+                                         <span class="css-rjdkb">
+                                            <svg class="css-qc1t6j" viewBox="0 0 24 24">
+                                               <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path>
+                                            </svg>
+                                            522K
+                                         </span>
+                                         </div>-->
+                                   </div>
+                                </div>
+                             </a>
+                          </div>
+                          <% } %>
+                          
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+       
+     </div>
+  </div>
+  <script
+     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+     crossorigin="anonymous"
+     ></script>
+  <script src="/js/chat/AppChat.js"></script>
+  <!-- <script src="/js/trade/AppTrade.js"></script>
+   <script src="/js/trade/scripts.js"></script> -->
+  <script  src="/js/app.js"></script>
+</body>

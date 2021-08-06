@@ -1,0 +1,31 @@
+<html>
+   <head>
+      <title>CastroMS - PBCoin</title>
+      <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="/vendor/cookiealert/cookiealert.css">
+      <link rel="stylesheet" media="all" href="/css/cssAuthenticate.css"/>
+   </head>
+   <body>
+      <form class="login" method="POST" enctype="application/x-www-form-urlencoded" action="http://localhost:8080/app/authenticate">
+         <% if (error) { %>
+         <div class="alert alert-danger new" role="alert">
+            <strong><%= error %></strong>
+        </div>
+        <% } %>
+         <input type="hidden" name="csrf" value="<%= csrfToken %>">
+         <input type="text"   name="user" placeholder="Username" autocomplete="username">
+         <input type="password" name="password" placeholder="Password" autocomplete="current-password">
+         <button>Login</button>
+      </form>
+      <div class="alert text-center cookiealert" role="alert">
+         <b>Do you like cookies?</b> 🍪 We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+     
+         <button type="button" class="btn btn-primary btn-sm acceptcookies">
+             I agree
+         </button>
+     </div>
+     <script src="/vendor/jquery/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <script src="/vendor/cookiealert/cookiealert.js"></script>
+
+   </body>
+</html>
