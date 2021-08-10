@@ -30,9 +30,9 @@ export default function(io: any, socket: any){
     const User = await getCustomRepository(UserEvoRepositories).findOne({
      userlogin: userInfo.login
     })
-
+  
     const messageOpts = {
-        id: NodeJsonCore.getData({data: "Messages"}).length+1,
+        id: Math.floor(Math.random() * (999 - 0 + 1)) + 0,
         level: User?.level,
         picture: User?.picture,
         name: userInfo.login.slice(0, -3)+'***',

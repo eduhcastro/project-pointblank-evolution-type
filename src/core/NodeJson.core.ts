@@ -36,9 +36,14 @@ class NodeJson {
   }
 
   public setData(data: string, params: object) {
+    if (data === 'Messages' && this.getData({ data: 'Messages' }).Messages.length > 30) {
+      this.acessData({
+        data
+      }).db.delete(`/${data}[0]`);
+    }
     this.acessData({
       data
-    }).db.push(data, params)
+    }).db.push(`/${data}[]`, params, true)
   }
 
 }
