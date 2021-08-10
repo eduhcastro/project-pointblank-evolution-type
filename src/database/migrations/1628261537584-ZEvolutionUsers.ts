@@ -1,6 +1,7 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class ZEvolutionUsers1628261537584 implements MigrationInterface {
+
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
@@ -29,7 +30,11 @@ export class ZEvolutionUsers1628261537584 implements MigrationInterface {
                 }
             ]
         }))
+
     }
+
+
+
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("zevolution_users")
