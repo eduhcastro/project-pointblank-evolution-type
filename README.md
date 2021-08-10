@@ -24,7 +24,7 @@ A site for the Point Blank game, with a system for exchanging items, roulettes, 
 
 The project's database was designed for PostgreSQL 9.4++, for the 3.24++ server
 You must have:
-* PostegresSQL v9.5+
+* PostgreSQL v9.5+
 * Node.js v14+
 * Configured .env file for connection to PGSQL database
 
