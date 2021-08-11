@@ -10,7 +10,7 @@ class NodeJson {
 
   private preData = [
     { name: "TradeCourrent", file: "trade/Courrent.trade" },
-    { name: "Sessions", file: "trade/Sessions.trade" },
+    { name: "Sessions", file: "Sessions.data" },
     { name: "Messages", file: "Chat.data", }]
 
   private acessData({

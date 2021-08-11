@@ -16,5 +16,6 @@ router.post('/app/logout', apis.LogoutUserApi)
  */
 router.get('/', routers.HomeController)
 router.get('/app/authenticate', middleware.LoggedBlock, routers.AuthController)
+router.get("/app/trade/create", middleware.Logged, routers.CreateTradeController)
 
 export default router
