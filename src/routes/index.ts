@@ -1,15 +1,16 @@
 import express from 'express'
 import * as middleware from '../middlewares'
 import * as routers from './routes'
-import * as apis from './api'
+import * as api from './api'
 
 const router = express.Router()
 
 /**
  * Apis
  */
-router.post('/app/authenticate', apis.AuthUserApi)
-router.post('/app/logout', apis.LogoutUserApi)
+router.post('/app/authenticate', api.AuthUserApi)
+router.post('/app/logout', api.LogoutUserApi)
+router.post('/app/trade/create', middleware.Logged, api.CreateTradeApi)
 
 /**
  * Rotas comuns
