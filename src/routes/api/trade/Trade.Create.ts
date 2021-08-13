@@ -28,7 +28,7 @@ const tools = {
 
 const cleanParams = (params: any): any => {
 
-  if (typeof params.title === 'undefined' || typeof params.categorys === 'undefined' || typeof params.description === 'undefined' || typeof params.thumbnail === 'undefined' || typeof params.background === 'undefined' || typeof params.public === 'undefined') {
+  if (typeof params.title === 'undefined' || typeof params.categorys === 'undefined' || typeof params.description === 'undefined' || typeof params.thumbnail === 'undefined' || typeof params.background === 'undefined' || typeof params.publictype=== 'undefined') {
     return { status: false, message: "Missing parameters" }
   }
 
@@ -62,7 +62,7 @@ const cleanParams = (params: any): any => {
 
 export default async function (req: Request, res: Response) {
 
-  const { title, categorys, description, thumbnail, background, publics } = req.body
+  const { title, categorys, description, thumbnail, background, publictype } = req.body
 
 
 
@@ -90,7 +90,7 @@ export default async function (req: Request, res: Response) {
     id: Math.floor(Math.random() * (999 - 0 + 1)) + 0,
     name: title,
     sessionkey: SessionKey,
-    public: publics,
+    public: publictype,
     owner: req.session.user.login,
     ownerid: Number(req.session.user.id),
     participant: null,

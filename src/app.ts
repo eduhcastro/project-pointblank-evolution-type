@@ -2,14 +2,13 @@
  * Modulos externos
  */
 import "reflect-metadata"
-import express, { Request, Response, NextFunction } from 'express'
+import express from 'express'
 import expressSession from 'express-session'
 import expressSharedSession from 'express-socket.io-session'
 import webSocketServices from './routes/websocket'
 import { createServer } from 'http'
 import { Server } from 'socket.io'
 import cors from 'cors'
-import path from 'path'
 import { keySession } from './server.config'
 import routes from './routes'
 import "./database"

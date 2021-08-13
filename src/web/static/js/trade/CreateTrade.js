@@ -186,7 +186,7 @@ class CreateTrade {
               description: Description,
               thumbnail: parseInt(ThumbNail.attr("data-thumb")),
               background: parseInt(Background.parent().attr("data-background")),
-              public: Public
+              publictype: Public
           }, function(e) {
               if (!e.status) {
                   return alert("it was not possible to create a trade")

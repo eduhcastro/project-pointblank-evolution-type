@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js",
+    "start": "node build/server.js",
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "preparedb": "yarn run typeorm migration:run && tsc scripts/triggers.ts && node scripts/triggers.js",

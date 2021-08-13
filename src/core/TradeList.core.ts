@@ -3,12 +3,10 @@ import { UserEvoRepositories } from "../repositories/UserEvo.repositorie";
 
 const TradeList = {
 
-  async handler(data: Array<any>, user: string) {
-
+  async handler(data: any, user: any) {
     let Sessoes = []
-    for (var Sessao of data) {
+    for (var Sessao of data.Sessions) {
       if (Sessao.owner !== user && Sessao.public === "true" && Sessao.participant === null) {
-
         const UserDetails = await getCustomRepository(UserEvoRepositories).findOne({
           userlogin: Sessao.owner
         })

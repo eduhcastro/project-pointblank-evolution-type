@@ -81,6 +81,7 @@ class AppTrade{
        * Inserindo as Sessoes no cliente
        */
       App.on(self.Routes.Load, (data) => {
+        console.log(data)
         self.insertTrades(data, self)
         return App.disconnect(self.Routes.Load)
       })
