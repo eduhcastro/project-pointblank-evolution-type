@@ -1,0 +1,560 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>TELA DE TROCA</title>
+      <meta name="fragment" content="!">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="canonical" href="https://swap.gg/">
+      <link rel="alternate" href="https://swap.gg/nl/" hreflang="nl">
+      <link rel="alternate" href="https://swap.gg/ru/" hreflang="ru">
+      <link rel="alternate" href="https://swap.gg/de/" hreflang="de">
+      <link rel="alternate" href="https://swap.gg/" hreflang="x-default">
+      <meta name="theme-color" content="#484848">
+      <link rel="dns-prefetch" href="https://steamcommunity-a.swap.gg">
+      <link rel="dns-prefetch" href="https://steamcdn-a.swap.gg">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.4.55/css/materialdesignicons.min.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.swap.gg/img/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.swap.gg/img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.swap.gg/img/favicon-16x16.png">
+      <link rel="shortcut icon" type="image/png" href="https://cdn.swap.gg/img/favicon.png">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
+      <script src="/components/trade/js/tools.js"></script>
+      <script src="/components/trade/js/user.js"></script>
+      <link href="/components/trade/css/app-9e2c6974141c650b27f4.css" rel="stylesheet">
+      
+      <meta data-vue-meta="1" data-vmid="description" name="description" content="Securely and easily buy, sell and trade skins/items for games like CS:GO, DOTA2, RUST, TF2 and more.">
+      <meta data-vue-meta="1" data-vmid="keywords" name="keywords" content="swapgg, csgo trade, rust trade, dota trade, csgo skin bot, rust skin bot, dota skin bot, csgo items, rust items, dota items, csgo skins, rust skins, dota skins, trading bot">
+      <meta data-vue-meta="1" data-vmid="og:title" property="og:title" content="swap.gg - Buy, Sell &amp; Trade Skins - CS:GO, DOTA2, RUST, TF2">
+      <meta data-vue-meta="1" data-vmid="og:site_name" property="og:site_name" content="swap.gg">
+      <meta data-vue-meta="1" data-vmid="og:description" property="og:description" content="Securely and easily buy, sell and trade skins/items instantly.">
+      <meta data-vue-meta="1" data-vmid="og:image" property="og:image" content="https://cdn.swap.gg/img/logo.png">
+      <meta data-vue-meta="1" data-vmid="twitter:card" property="twitter:card" content="summary">
+      <meta data-vue-meta="1" data-vmid="twitter:site" property="twitter:site" content="@swapdotgg">
+      <meta data-vue-meta="1" data-vmid="twitter:title" property="twitter:title" content="swap.gg - Buy, Sell &amp; Trade Skins Instantly">
+      <meta data-vue-meta="1" data-vmid="twitter:description" property="twitter:description" content="Securely and easily buy, sell and trade skins/items for games like CS:GO, DOTA2, RUST, TF2 and more.">
+      <meta data-vue-meta="1" data-vmid="og:url" property="og:url" content="https://swap.gg/">
+      <link rel="stylesheet" type="text/css" href="/components/trade/css/2-fba4731b5a98c11642e4.css?v=4">
+      <link re="stylesheet" type="text/css" href="/components/trade/css/new.css?v=2">
+      <script>
+       User = '<%= user.name %>';
+      </script>
+   </head>
+   <body class="has-navbar-fixed-top">
+     
+      <div data-v-c08bd0aa="" class="app">
+         <nav data-v-c9b8630e="" data-v-c08bd0aa="" role="navigation" aria-label="main navigation" class="navbar is-fixed-top">
+            <div class="navbar-brand"><a data-v-c9b8630e="" href="/" aria-current="page" class="navbar-item is-active"><img data-v-c9b8630e="" src="https://cdn.swap.gg/img/logo-small.png" class="logo-badge"></a><a role="button" aria-label="menu" class="navbar-burger burger"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></a></div>
+            <div class="navbar-menu">
+               <div class="navbar-start">
+                  <a data-v-c9b8630e="" href="/" aria-current="page" class="navbar-item is-active">Trade</a>
+                  <a data-v-c9b8630e="" href="https://api.swap.gg/auth/market" target="_blank" rel="noopener noreferrer" class="navbar-item">About</a>
+
+               </div>
+               <div class="navbar-end">
+                  <div data-v-c9b8630e="" class="navbar-item">
+                     <span data-v-c9b8630e="" class="b-tooltip is-primary is-bottom is-medium is-multiline">
+                        <div class="tooltip-content" style="display: none;">Your balance converted to our base currency: $0.00</div>
+                        <div class="tooltip-trigger">
+                           <button data-v-c9b8630e="" type="button" class="button">
+                              <!----><span id="mymoneyis">$0.00</span><span class="icon is-small"><i class="mdi mdi-plus"></i></span>
+                           </button>
+                        </div>
+                     </span>
+                  </div>
+                  <div data-v-c9b8630e="" class="navbar-item has-dropdown" id="menuuser">
+                     <a role="menuitem" aria-haspopup="true" href="#" class="navbar-link">
+                        <div data-v-c9b8630e="" class="user-profile"><img data-v-c9b8630e="" src="https://steamcdn-a.swap.gg/steamcommunity/public/images/avatars/ae/ae333d6d04c48e5fa91d696d799569da5a1326a4_full.jpg" class="user-image"><span data-v-c9b8630e="">*</span></div>
+                     </a>
+                     <div class="navbar-dropdown is-right" style="display: none;">
+                        <a data-v-c9b8630e="" class="navbar-item">Settings</a><a data-v-c9b8630e="" class="navbar-item">Add Funds</a><a data-v-c9b8630e="" href="/history/trades" class="navbar-item">History</a><!----><!----><!---->
+                        <hr data-v-c9b8630e="" class="navbar-divider">
+                        <a data-v-c9b8630e="" class="navbar-item">Logout</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      
+         <div data-v-21399cf3="" data-v-c08bd0aa="" class="app-content">
+            <!---->
+            <section data-v-21399cf3="" class="section">
+            
+               <div data-v-21399cf3="" class="columns is-desktop">
+                  <div data-v-21399cf3="" class="column">
+                     <div data-v-21399cf3="" class="panel offer">
+                        <div data-v-21399cf3="" class="panel-heading">
+                           <div data-v-21399cf3="">You Offer</div>
+                           <div data-v-21399cf3="" id="youroferitemmoney"><span id="youroferitemmoney1">0</span> items - $<span id="youroferitemmoney2">0</span>.00</div>
+                        </div>
+                        <div data-v-21399cf3="" class="panel-block items is-paddingless youoffer">
+
+                        
+
+                        </div>
+
+                        <div id="LockedUser" class="lockeuserdiv" style="display: none;">  
+                           <span class="lockpreguicas" id="usernamelock"><%= user.name %> Pronto!</span>
+                           <span class="lockpreguicas2">Não é possivel adicionar/retirar items enquanto estiver no estado 
+                           <span style="color: #00adff;">Pronto</span></span>
+                           <span class="lockpreguicas3">Nota: caso o participante remova/adicione algum item, você saira desse estado automaticamente</span>
+                           <img src="/components/trade/imgs/gifs/padlock.gif" class="lockgif">
+                        </div>
+
+                     </div>
+                  </div>
+                  <div data-v-21399cf3="" class="column has-text-centered vertical-center center-width">
+                     <button data-v-21399cf3="" type="button" class="button mb-2 is-medium is-success is-fullwidth">
+                        <span class="icon is-small"><i class="mdi mdi-swap-horizontal"></i></span><span class="pronto">Pronto</span><!---->
+                     </button>
+                     <button data-v-21399cf3="" type="button" class="button mb-4 is-small is-dark is-fullwidth">
+                        <span class="icon is-small"><i class="mdi mdi-robot"></i></span><span>Auto Select</span><!---->
+                     </button>
+                     <div data-v-21399cf3="" class="tags has-addons">
+                        <span data-v-21399cf3="" class="tag is-medium">
+                           <span class=""><span data-v-21399cf3="" class="icon is-small"><i class="mdi mdi-plus"></i></span></span><!---->
+                        </span>
+                        <span data-v-21399cf3="" class="tag is-dark is-medium">
+                           <span class="">$0.00</span><!---->
+                        </span>
+                        <span data-v-21399cf3="" class="tag is-medium">
+                           <span class="">Balance</span><!---->
+                        </span>
+                     </div>
+                  </div>
+                  <div data-v-21399cf3="" class="column">
+                     <div data-v-21399cf3="" class="panel offer">
+                        <div data-v-21399cf3="" class="panel-heading">
+                           <div data-v-21399cf3="">You Receive</div>
+                           <div data-v-21399cf3="" id="CountItemMoneyFriend">0 items - $0.00</div>
+                        </div>
+                        <div data-v-21399cf3="" class="panel-block items is-paddingless frineditems">
+
+                        </div>
+                        <div id="LockedUser2" class="lockeuserdiv" style="display: none;">  
+                           <span class="lockpreguicas" id="usernamelock2">eduhcastro19 Pronto!</span>
+                           <span class="lockpreguicas2 friend">O Usuario está esperando voce aceitar a troca!</span>
+                           <span class="lockpreguicas3 friend">Nota: se voce retirar/adicionar algum item, o usuario terá que ficar pronto novamente</span>
+                           <img src="/components/trade/imgs/gifs/padlock.gif" class="lockgif">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div data-v-21399cf3="" class="columns is-desktop">
+                  <div data-v-21399cf3="" class="column">
+                     <div data-v-21399cf3="" class="level" style="margin-bottom: 0px;">
+                        <div data-v-21399cf3="" class="level-left">
+                           <div data-v-21399cf3="" class="tabs">
+                              <ul data-v-21399cf3="">
+                                 <li data-v-21399cf3="" class="is-active"><a data-v-21399cf3=""><img data-v-21399cf3="" src="https://cdn.swap.gg/img/game_icons/730.png"></a></li>
+                              
+                              </ul>
+                           </div>
+                        </div>
+                        <div data-v-21399cf3="" class="level-right is-hidden-touch">
+                           <a data-v-21399cf3="" type="button" href="https://api.swap.gg/auth/market?page=sell" target="_blank" class="button is-info is-rounded">
+                              <span class="icon is-small"><i class="mdi mdi-cash-multiple"></i></span><span>Sell Skins for Cash</span><!---->
+                           </a>
+                        </div>
+                     </div>
+                     <div data-v-21399cf3="" class="panel inventory">
+                        <p data-v-21399cf3="" class="panel-heading">Your Inventory</p>
+                        <div data-v-21399cf3="" class="panel-block">
+                           <div data-v-21399cf3="" class="field" style="width: 100%;">
+                              <!---->
+                              <div class="field-body">
+                                 <div class="field has-addons">
+                                    <!---->
+                                    <div data-v-21399cf3="" class="control is-expanded">
+                                       <div data-v-21399cf3="" class="control has-icons-left  is-clearfix">
+                                          <input type="search" autocomplete="on" id="SearchOwner" placeholder="Search for items..." class="input"><span class="icon is-left"><i class="mdi mdi-magnify mdi-24px"></i></span><!----><!---->
+                                       </div>
+                                    </div>
+                                    <div data-v-21399cf3="" class="control">
+                                       <div data-v-21399cf3="" class="control">
+                                          <span class="select">
+                                             <select id="SortItens">
+                                                <option data-v-21399cf3="" value="0">Expensive first</option>
+                                                <option data-v-21399cf3="" value="1">Lowest lock</option>
+                                                <option data-v-21399cf3="" value="2">Longest time</option>
+                                                <option data-v-21399cf3="" value="3">Shorter time</option>
+                                             </select>
+                                          </span>
+                                          <!---->
+                                       </div>
+                                    </div>
+                                    <div data-v-21399cf3="" class="control">
+                                       <button data-v-21399cf3="" type="button" class="button">
+                                          <span class="icon is-small"><i class="mdi mdi-sync"></i></span><!----><!---->
+                                       </button>
+                                    </div>
+                                    <!---->
+                                 </div>
+                              </div>
+                              <!---->
+                           </div>
+                        </div>
+                        <div data-v-21399cf3="" class="panel-block items owner" style="height: 750px;"> 
+                           <!-- TELA DONO
+                              <div data-v-13d367a4="" data-v-21399cf3="" class="item" style="background-image: url('/imgs/AUG_A3_Cupid.png');">
+                              <span data-v-13d367a4="" class="q">x1</span><span data-v-13d367a4="" class="tl">15 DAYS</span><span data-v-13d367a4="" class="p">$1,010.31</span><span data-v-13d367a4="" class="ex">AUG Cupid</span>
+                           </div>  --->
+                        </div>
+                     </div>
+                  </div>
+                  <div data-v-21399cf3="" class="column center-width bot-filters-bottom">
+                     <div data-v-21399cf3="">
+                        <div data-v-21399cf3="" class="panel bot-filter-panel">
+                           <p data-v-21399cf3="" class="panel-heading panel-center">Filters</p>
+                           <div data-v-21399cf3="" class="panel-block">
+                              <aside data-v-21399cf3="" class="menu bot-filters">
+                                 <div data-v-21399cf3="" class="menu-label">
+                                    <h2 data-v-21399cf3="" class="is-pulled-left has-text-weight-bold has-text-primary">Price</h2>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-list">
+                                    <div data-v-21399cf3="" class="field">
+                                       <!---->
+                                       <div class="field-body">
+                                          <div class="field is-grouped">
+                                             <!---->
+                                             <div data-v-21399cf3="" class="field is-expanded">
+                                                <!----><input data-v-21399cf3="" inputmode="decimal" class="input"><!---->
+                                             </div>
+                                             <div data-v-21399cf3="" class="field is-expanded">
+                                                <!----><input data-v-21399cf3="" inputmode="decimal" class="input"><!---->
+                                             </div>
+                                             <!---->
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-label">
+                                    <h2 data-v-21399cf3="" class="is-pulled-left has-text-weight-bold has-text-primary">Type</h2>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-list">
+                                    <div data-v-21399cf3="" class="control is-expanded">
+                                       <span class="select is-fullwidth">
+                                          <select>
+                                             <!---->
+                                             <option data-v-21399cf3="" value="All">All Items</option>
+                                             <option data-v-21399cf3="" value="Pistol">Pistol</option>
+                                             <option data-v-21399cf3="" value="SMG">SMG</option>
+                                             <option data-v-21399cf3="" value="Rifle">Rifle</option>
+                                             <option data-v-21399cf3="" value="Shotgun">Shotgun</option>
+                                             <option data-v-21399cf3="" value="Sniper Rifle">Sniper Rifle</option>
+                                             <option data-v-21399cf3="" value="Machinegun">Machinegun</option>
+                                             <option data-v-21399cf3="" value="Knife">Knife</option>
+                                             <option data-v-21399cf3="" value="Key">Key</option>
+                                             <option data-v-21399cf3="" value="Agent">Agent</option>
+                                             <option data-v-21399cf3="" value="Pass">Boxe</option>
+                                          </select>
+                                       </span>
+                                       <!---->
+                                    </div>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-label">
+                                    <h2 data-v-21399cf3="" class="is-pulled-left has-text-weight-bold has-text-primary">Year</h2>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-list">
+                                    <div data-v-21399cf3="" class="control is-expanded">
+                                       <span class="select is-fullwidth">
+                                          <select>
+                                             <!---->
+                                             <option data-v-21399cf3="" value="All">All</option>
+                                             <option data-v-21399cf3="" value="Factory New">2020</option>
+                                             <option data-v-21399cf3="" value="Minimal Wear">2019</option>
+                                             <option data-v-21399cf3="" value="Field-Tested">2018</option>
+                                             <option data-v-21399cf3="" value="Well-Worn">2017</option>
+                                             <option data-v-21399cf3="" value="Battle-Scarred">2016</option>
+                                          </select>
+                                       </span>
+                                       <!---->
+                                    </div>
+                                 </div>
+                                 <!----><!----><!---->
+                                 <div data-v-21399cf3="" class="menu-label">
+                                    <h2 data-v-21399cf3="" class="is-pulled-left has-text-weight-bold has-text-primary">Trade Locked</h2>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-list">
+                                    <div data-v-21399cf3="" class="field">
+                                       <!---->
+                                       <div data-v-21399cf3="" class="b-slider is-primary">
+                                          <div class="b-slider-track">
+                                             <div class="b-slider-fill" style="width: 100%; left: 0%;"></div>
+                                             <!---->
+                                             <div class="b-slider-thumb-wrapper" style="left: 0%;">
+                                                <span class="b-tooltip is-primary is-top is-medium">
+                                                   <div class="tooltip-content" style="display: none;">0</div>
+                                                   <div class="tooltip-trigger">
+                                                      <div tabindex="0" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8" aria-orientation="horizontal" class="b-slider-thumb">
+                                                         <!---->
+                                                      </div>
+                                                   </div>
+                                                </span>
+                                             </div>
+                                             <div class="b-slider-thumb-wrapper" style="left: 100%;">
+                                                <span class="b-tooltip is-primary is-top is-medium">
+                                                   <div class="tooltip-content" style="display: none;">8</div>
+                                                   <div class="tooltip-trigger">
+                                                      <div tabindex="0" role="slider" aria-valuenow="8" aria-valuemin="0" aria-valuemax="8" aria-orientation="horizontal" aria-label="" class="b-slider-thumb">
+                                                         <!---->
+                                                      </div>
+                                                   </div>
+                                                </span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                    <div data-v-21399cf3="" class="field">
+                                       <!---->
+                                       <p data-v-21399cf3="">less than 8 days locked</p>
+                                       <!---->
+                                    </div>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-label">
+                                    <h2 data-v-21399cf3="" class="is-pulled-left has-text-weight-bold has-text-primary">Misc</h2>
+                                 </div>
+                                 <div data-v-21399cf3="" class="menu-list">
+                                    <div data-v-21399cf3="" class="field switch-filter">
+                                       <!---->
+                                       <div class="field-body">
+                                          <div class="field has-addons">
+                                             <!----><label data-v-21399cf3="" class="switch is-rounded"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><label data-v-21399cf3="" class="b-checkbox checkbox"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><span data-v-21399cf3="">StatTrak™</span><!---->
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                    <div data-v-21399cf3="" class="field switch-filter">
+                                       <!---->
+                                       <div class="field-body">
+                                          <div class="field has-addons">
+                                             <!----><label data-v-21399cf3="" class="switch is-rounded"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><label data-v-21399cf3="" class="b-checkbox checkbox"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><span data-v-21399cf3="">Stickers</span><!---->
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                    <div data-v-21399cf3="" class="field switch-filter">
+                                       <!---->
+                                       <div class="field-body">
+                                          <div class="field has-addons">
+                                             <!----><label data-v-21399cf3="" class="switch is-rounded"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><label data-v-21399cf3="" class="b-checkbox checkbox"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><span data-v-21399cf3="">Souvenir</span><!---->
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                    <div data-v-21399cf3="" class="field switch-filter">
+                                       <!---->
+                                       <div class="field-body">
+                                          <div class="field has-addons">
+                                             <!----><label data-v-21399cf3="" class="switch is-rounded"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><label data-v-21399cf3="" class="b-checkbox checkbox"><input type="checkbox" true-value="true" value="false"><span class="check"></span><span class="control-label"></span></label><span data-v-21399cf3="">Nametag</span><!---->
+                                          </div>
+                                       </div>
+                                       <!---->
+                                    </div>
+                                 </div>
+                              </aside>
+                           </div>
+                        </div>
+                        <div data-v-21399cf3="" class="panel">
+                           <p data-v-21399cf3="" class="panel-heading panel-center">Commissions</p>
+                           <div data-v-21399cf3="" class="panel-block market-rates">
+                              <div data-v-21399cf3="" class="message">
+                                 <div data-v-21399cf3="" class="message-header">
+                                    <p data-v-21399cf3="">CS:GO</p>
+                                 </div>
+                                 <div data-v-21399cf3="" class="message-body" style="display: none;">
+                                    <p data-v-21399cf3="" class="has-text-centered">Commission: 6%</p>
+                                    <p data-v-21399cf3="" class="has-text-centered">Additional 0-10% fee based on stock</p>
+                                 </div>
+                              </div>
+                              <div data-v-21399cf3="" class="message">
+                                 <div data-v-21399cf3="" class="message-header">
+                                    <p data-v-21399cf3="">Rust</p>
+                                 </div>
+                                 <div data-v-21399cf3="" class="message-body" style="display: none;">
+                                    <p data-v-21399cf3="" class="has-text-centered">Commission: 8%</p>
+                                    <p data-v-21399cf3="" class="has-text-centered">Additional 0-10% fee based on stock</p>
+                                 </div>
+                              </div>
+                              <div data-v-21399cf3="" class="message">
+                                 <div data-v-21399cf3="" class="message-header">
+                                    <p data-v-21399cf3="">DotA 2</p>
+                                 </div>
+                                 <div data-v-21399cf3="" class="message-body" style="display: none;">
+                                    <p data-v-21399cf3="" class="has-text-centered">Commission: 10%</p>
+                                    <p data-v-21399cf3="" class="has-text-centered">Additional 0-10% fee based on stock</p>
+                                 </div>
+                              </div>
+                              <div data-v-21399cf3="" class="message">
+                                 <div data-v-21399cf3="" class="message-header">
+                                    <p data-v-21399cf3="">TF2</p>
+                                 </div>
+                                 <div data-v-21399cf3="" class="message-body" style="display: none;">
+                                    <p data-v-21399cf3="" class="has-text-centered">Commission: 6%</p>
+                                    <p data-v-21399cf3="" class="has-text-centered">Additional 0-10% fee based on stock</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div data-v-21399cf3="" class="column">
+                     <div data-v-21399cf3="" class="level" style="margin-bottom: 0px;">
+                        <div data-v-21399cf3="" class="level-left">
+                           <div data-v-21399cf3="" class="tabs">
+                              <ul data-v-21399cf3="">
+                                 <li data-v-21399cf3="" class="is-active"><a data-v-21399cf3=""><img data-v-21399cf3="" src="https://cdn.swap.gg/img/game_icons/730.png"></a></li>
+                             
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div data-v-21399cf3="" class="panel inventory">
+                        <p data-v-21399cf3="" class="panel-heading">Friend Inventory</p>
+                        <div data-v-21399cf3="" class="panel-block">
+                           <div data-v-21399cf3="" class="field" style="width: 100%;">
+                              <!---->
+                              <div class="field-body">
+                                 <div class="field has-addons">
+                                    <!---->
+                                    <div data-v-21399cf3="" class="control is-expanded">
+                                       <div data-v-21399cf3="" class="control has-icons-left  is-clearfix">
+                                     
+                                       </div>
+                                    </div>
+                                    <div data-v-21399cf3="" class="control">
+                                       <div data-v-21399cf3="" class="control">
+                                         
+                                          <!---->
+                                       </div>
+                                    </div>
+                                    <div data-v-21399cf3="" class="control">
+                                      
+                                    </div>
+                                    <!---->
+                                 </div>
+                              </div>
+                              <!---->
+                           </div>
+                        </div>
+                        <div data-v-21399cf3="" class="panel-block items is-paddingless xyz" style="height: 750px;">
+                        </div>
+                     </div>
+                  </div>
+                <div class="divleft" id="cagado">  
+      <span class="awaituser" id="AwaitUser"> Aguardando um participante...</span>
+      <img src="https://d18xl8ggo6ud4h.cloudfront.net/wp-content/uploads/2019/04/loading.fef1f20.gif" class="gifawaituser" id="AwaitUserImg">
+   </div>
+
+   <div id="AlertFinishTrade" style="display: none;">
+      </div>
+
+<!-- 
+<div style="top: 105px; position: absolute; width: 678px; background: rgba(0, 0, 0, 0.74); height: 1197px; margin: auto auto auto 959px; display: block;" id="cagado">  <span style="margin-top: 38%;position: absolute;margin-left: 30%;font-size: 20px;">O Usuario #teste123 entrou</span>
+<span style="margin-top: 42%;position: absolute;margin-left: 38%;font-size: 15px;">Aguarde 5 segundos..</span>
+              <img src="/imgs/Done.gif" style="
+                  position: absolute;
+                  margin-top: 41%;
+                  margin-left: 38%;
+                  width: 150px;
+              "></div>-->
+<!-- <div style="top: 105px; position: absolute; width: 678px; background: rgba(0, 0, 0, 0.74); height: 1197px; margin: auto auto auto 959px; display: block;" id="cagado">  
+      <span style="margin-top: 38%;position: absolute;margin-left: 36%;font-size: 20px;" id="AwaitUser">O Participante saiu!</span>
+<span style="margin-top: 42%;position: absolute;margin-left: 31%;font-size: 15px;" id="AwaitUser">Aguardando resposta do usuario (5s)</span>
+      <img src="/imgs/Alert.gif" style="position: absolute;margin-top: 46%;margin-left: 46%;width: 51px;" id="AwaitUserImg"></div> -->
+
+               </div>
+             
+            </section>
+            <section data-v-1d456f34="" data-v-21399cf3="" class="section stats is-hidden-touch">
+               <div data-v-1d456f34="" class="site-keys">
+                  <nav data-v-1d456f34="" class="level">
+                     <div data-v-1d456f34="" class="level-item has-text-centered">
+                        <div data-v-1d456f34="">
+                           <p data-v-1d456f34="" class="heading">Total trades</p>
+                           <p data-v-1d456f34="" class="title">5,468,509</p>
+                        </div>
+                     </div>
+                     <div data-v-1d456f34="" class="level-item has-text-centered">
+                        <div data-v-1d456f34="">
+                           <p data-v-1d456f34="" class="heading">Total users</p>
+                           <p data-v-1d456f34="" class="title">952,543</p>
+                        </div>
+                     </div>
+                     <div data-v-1d456f34="" class="level-item has-text-centered">
+                        <div data-v-1d456f34="">
+                           <p data-v-1d456f34="" class="heading">New users today</p>
+                           <p data-v-1d456f34="" class="title">526</p>
+                        </div>
+                     </div>
+                     <div data-v-1d456f34="" class="level-item has-text-centered">
+                        <div data-v-1d456f34="">
+                           <p data-v-1d456f34="" class="heading">Online users</p>
+                           <p data-v-1d456f34="" class="title">547</p>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+            </section>
+         </div>
+         <div data-v-6bfce038="" data-v-c08bd0aa="">
+            <div data-v-77bc5526="" data-v-6bfce038="" class="payments-block">
+               <div data-v-77bc5526="" class="container">
+                  <div data-v-77bc5526="" class="logo-payments is-hidden-mobile"><img data-v-77bc5526="" src="https://cdn.swap.gg/img/payment_processors/visa-logo.svg" style="height: 14px;"><img data-v-77bc5526="" src="https://cdn.swap.gg/img/payment_processors/mastercard-logo.svg" style="height: 25px;"></div>
+                  <div data-v-77bc5526="" class="localization-info">
+                     <button data-v-77bc5526="" class="footer-region">
+                        <div data-v-77bc5526="" class="flag"><img data-v-77bc5526="" src="https://cdn.swap.gg/img/flags/en.png"></div>
+                        <span data-v-77bc5526="">English, USD</span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <footer data-v-6bfce038="" class="footer">
+               <div data-v-6bfce038="" class="container">
+                  <div data-v-6bfce038="" class="columns">
+                     <div data-v-6bfce038="" class="column">
+                        <img data-v-6bfce038="" src="https://cdn.swap.gg/img/logo-small.png">
+                        <div data-v-6bfce038="" class="content" style="margin-top: 1rem;">
+                           <p data-v-6bfce038="">© 2017-2021,&nbsp;<strong data-v-6bfce038="">swap.gg</strong>&nbsp;- All rights reserved. Not affiliated with Valve Corp. swap.gg™ is a tradename of Xyvo Gaming, Sloterweg 796, (1066 CN) Amsterdam, the Netherlands.</p>
+                        </div>
+                     </div>
+                     <div data-v-6bfce038="" class="column is-offset-1">
+                        <aside data-v-6bfce038="" class="menu">
+                           <p data-v-6bfce038="" class="menu-label">About us</p>
+                           <ul data-v-6bfce038="" class="menu-list">
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="/terms-of-service" class="">Terms of Service</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="/privacy-policy" class="">Privacy Policy</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="/cookie-policy" class="">Cookie Policy</a></li>
+                           </ul>
+                        </aside>
+                     </div>
+                     <div data-v-6bfce038="" class="column">
+                        <aside data-v-6bfce038="" class="menu">
+                           <p data-v-6bfce038="" class="menu-label">More!</p>
+                           <ul data-v-6bfce038="" class="menu-list">
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://docs.swap.gg/" target="_blank" rel="noopener noreferrer">API documentation</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://affiliate.swap.gg/" target="_blank" rel="noopener noreferrer">Affiliate Program</a></li>
+                           </ul>
+                        </aside>
+                     </div>
+                     <div data-v-6bfce038="" class="column">
+                        <aside data-v-6bfce038="" class="menu">
+                           <p data-v-6bfce038="" class="menu-label">Social</p>
+                           <ul data-v-6bfce038="" class="menu-list">
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://twitter.com/swapdotgg" target="_blank" rel="noopener noreferrer"><img data-v-6bfce038="" src="https://cdn.swap.gg/img/social_icons/twitter.svg" alt="Twitter">Twitter</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://www.instagram.com/swapdotgg/" target="_blank" rel="noopener noreferrer"><img data-v-6bfce038="" src="https://cdn.swap.gg/img/social_icons/instagram.svg" alt="Instagram">Instagram</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://facebook.com/swapdotgg" target="_blank" rel="noopener noreferrer"><img data-v-6bfce038="" src="https://cdn.swap.gg/img/social_icons/facebook.svg" alt="Facebook">Facebook</a></li>
+                              <li data-v-6bfce038=""><a data-v-6bfce038="" href="https://discord.swap.gg/" target="_blank" rel="noopener noreferrer"><img data-v-6bfce038="" src="https://cdn.swap.gg/img/social_icons/discord.svg" alt="Discord">Discord</a></li>
+                           </ul>
+                        </aside>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+              
+         </div>
+      </div>
+   </body>
+</html>

@@ -297,7 +297,6 @@ class Trade {
              * Injetando items no cliente, para os dois usuarios
              */
             App.on(self.Routes.GetItems, function(items) {
-                console.log({User: User, Items: items})
                 if (items.owner !== User) {
                     self.Count = 2
                     self.Render.Participant("Enter", items.owner)

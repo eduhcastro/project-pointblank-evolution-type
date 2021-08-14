@@ -1,0 +1,11 @@
+{
+  "Weapons": [
+    {"id": 103232, "name": "AUG A3 HALLOWEEN",      "category": 1, "price": 350, "img":"undefined.png"},
+    {"id": 301162, "name": "HALLOWEEN HAMMER",      "category": 1, "price": 150, "img":"undefined.png"},
+    {"id": 104237, "name": "KRISSSUPERV HALLOWEEN", "category": 1, "price": 250, "img":"undefined.png"},
+    {"id": 105232, "name": "Barrett M82A1 Premium", "category": 1, "price": 568, "img":"BARRET_PREMIUM.png"},
+    {"id": 104132, "name": "Kriss S.V Midnight",    "category": 1, "price": 125, "img":"undefined.png"},
+    {"id": 103405, "name": "AUG A3 X-MAS 2017",     "category": 1, "price": 315, "img":"undefined.png"},
+    {"id": 104534, "name": "OA 93 X-MAS 2017",      "category": 1, "price": 302, "img":"undefined.png"}
+  ]
+}

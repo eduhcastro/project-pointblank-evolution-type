@@ -18,5 +18,6 @@ router.post('/app/trade/create', middleware.Logged, api.CreateTradeApi)
 router.get('/', routers.HomeController)
 router.get('/app/authenticate', middleware.LoggedBlock, routers.AuthController)
 router.get("/app/trade/create", middleware.Logged, routers.CreateTradeController)
+router.get("/app/trade/exchange", middleware.Logged, routers.ExchangeTradeController)
 
 export default router

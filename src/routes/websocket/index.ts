@@ -1,9 +1,11 @@
 import ChatSocket from './chat';
-import TradeList from './trades'
+import TradeListSocket from './trades'
+import ExchangeSocket from './trade'
 
 export default function(io: any){
   io.sockets.on('connect', function(socket: any){
     ChatSocket(io,socket)
-    TradeList(io,socket)
+    TradeListSocket(io,socket)
+    ExchangeSocket(io,socket)
   })
 }

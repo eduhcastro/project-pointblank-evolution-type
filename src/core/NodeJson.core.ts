@@ -11,6 +11,7 @@ class NodeJson {
   private preData = [
     { name: "TradeCourrent", file: "trade/Courrent.trade" },
     { name: "Sessions", file: "Sessions.data" },
+    { name: "Weapons", file: "Weapons.data" },
     { name: "Messages", file: "Chat.data", }]
 
   private acessData({
@@ -20,7 +21,7 @@ class NodeJson {
     if (!preLoad) {
       throw new Error(`${data} not found`)
     }
-    const db = new JsonDB(new Config(`./src/database/json/${preLoad.file}.json`, true, false, '/'))
+    const db = new JsonDB(new Config(`./src/database/json/${preLoad.file}.json`, true, true, '/'))
     return {
       db,
       data: db.getObject<any>(preLoad.name)
