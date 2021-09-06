@@ -1,109 +1,132 @@
 <head>
-  <title>PointBlank Future</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <link rel="stylesheet" href='/css/cssNewNew.css?v=10'/>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
-  <link rel="stylesheet" href="/vendor/emojionearea/emojionearea.min.css">
-  <script type="text/javascript" src="/vendor/emojionearea/emojionearea.min.js"></script>
-  <script>
-     var user = '<%= user.name %>'
-  </script>
+   <title>PointBlank Future</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   <link rel="stylesheet" href='/css/cssNewNew.css?v=10' />
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
+   <link rel="stylesheet" href="/vendor/emojionearea/emojionearea.min.css">
+   <script type="text/javascript" src="/vendor/emojionearea/emojionearea.min.js"></script>
+   <script>
+      var user = '<%= user.name %>'
+   </script>
 </head>
+
 <body>
-  <div id="router-container">
-     <div class="viewport normal-design ">
-        <div class="sc-bTDOke dXiuJH winter--snow_background">
-           <button class="sc-dsXzNU iqNwfp burger">
-              <div></div>
-              <div></div>
-              <div></div>
-           </button>
-           <div class="sc-lbVvki ghCdOs">
-              <div class="sc-dFRpbK bFgzLZ"><a aria-current="page" class="logo active" href="/">
-                 <img src="https://www.pikpng.com/pngl/b/54-540351_point-blank-pointblank-png-clipart.png" alt="Gamdom Logo" width="50"></a>
-              </div>
-              <div class="sc-hOPeYd eXirsP" style="border-bottom: solid; background-color: transparent;"><a href="#">Cases</a></div>
-           </div>
-           <% if (!user.name) { %>
-           <div class="sc-fXazdy UjHkE">
-              <div class="sc-fuISkM cHQuCr">
-                 <div class="sc-cOifOu haQoIp" style="background-color: transparent;"><button class="sc-hTRkXV sc-hhIiOg sc-eirqVv enlJuL iwisNA dSzotL" >Login</button></div>
-              </div>
-           </div>
-           <% }else{ %>
-           <div class="sc-fXazdy UjHkE">
-              <div class="sc-fuISkM cHQuCr">
-                 <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32" class="rounded-circle"/>
-                    </a>
-                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                       <li><a class="dropdown-item" href="#">New project...</a></li>
-                       <li><a class="dropdown-item" href="#">Settings</a></li>
-                       <li><a class="dropdown-item" href="#">Profile</a></li>
-                       <li>
-                          <hr class="dropdown-divider" />
-                       </li>
-                       <li><a class="dropdown-item logout" href="#">Sign out</a></li>
-                    </ul>
-                 </div>
-              </div>
-           </div>
-           <% }%>
-        </div>
-        <div class="site_content site_content--winter">
-           <div class="section_left" tabindex="0">
-              <div class="chat_section">
-                 <div class="chat_rooms ">
-                    <div class="chat_rooms_head">
-                       <div class="chat_lang">
-                       </div>
-                    </div>
-                    <a class="chat_collapse"><span class="icon-angle-double-left "></span></a>
-                    <div class="chatting_chat_msgs">
-                       <div class="top-gradient"></div>
-                       <div class="chat_input_hold">
-                          <div class="chat_msgs">
-                             <ul class="messages" style="padding-left: 0;">
-                             </ul>
-                          </div>
-                          <div class="chat_input_contain">
-                             <input type="text" class="chat_input" maxlength="500" placeholder="Chat"><span class="chat_send"><i class="fas fa-paper-plane"></i>
-                             </span>
-                             <div><a class="emoji"><i class="fas fa-times"></i>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="spinner-pre-loader"></div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <div class="section_right">
-              <!-- CONTENTE -->
-              <div class="sc-dprnXS eyUYsL">
-                 <div class="sc-kMGnOH gIgWXs">
-                    <div class="sc-eLSyJA lJvlA" style=" flex: 0 0 25%; transform: translate(14%, 17%); margin: 0">
-                       <a href="/app/trade/exchange?token=pnQOYivZvN56ioC89DXfzSMc1364yZF85nxEkMPw8vgM8XM2iOyVQUnaPersWwGo">
-                       </a>
-                       <div class="item">
-                          <a href="/app/trade/exchange?token=pnQOYivZvN56ioC89DXfzSMc1364yZF85nxEkMPw8vgM8XM2iOyVQUnaPersWwGo">
-                             <div class="modal-items-evolution add" style="background: linear-gradient(to bottom, #9900cc 0%, #ff99cc 100%);">
-                                <div class="title">
-                                   <h3 style="color: rgb(0 2 0);">Title</h3>
-                                </div>
-                                <div class="modal-items-item" style="background: rgb(239 239 239 / 0%);">
-                                   <div class="owner">
-                                      <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32" class="rounded-circle avatar" data-toggle="tooltip" data-bs-placement="bottom" data-html="true" title="" data-bs-original-title="<b style='color: #ffc659'>eduh123</b><br><span>Description</span>"></div>
-                                   <img src="/images/icons/diamond.png" class="item" style="filter: opacity(1);">
-                                   <div class="category-imgs item list">
-                                     
-                                   </div>
-                                </div>
-                                <!--  <div class="css-12tf9og" style="background: rgb(214 214 214);color: rgb(155, 134, 95);">
+   <div id="router-container">
+      <div class="viewport normal-design ">
+         <div class="sc-bTDOke dXiuJH winter--snow_background">
+            <button class="sc-dsXzNU iqNwfp burger">
+               <div></div>
+               <div></div>
+               <div></div>
+            </button>
+            <div class="sc-lbVvki ghCdOs">
+               <div class="sc-dFRpbK bFgzLZ"><a aria-current="page" class="logo active" href="/">
+                     <img src="https://www.pikpng.com/pngl/b/54-540351_point-blank-pointblank-png-clipart.png"
+                        alt="Gamdom Logo" width="50"></a>
+               </div>
+               <div class="sc-hOPeYd eXirsP" style="border-bottom: solid; background-color: transparent;"><a
+                     href="#">Cases</a></div>
+            </div>
+            <% if (!user.name) { %>
+               <div class="sc-fXazdy UjHkE">
+                  <div class="sc-fuISkM cHQuCr">
+                     <div class="sc-cOifOu haQoIp" style="background-color: transparent;"><button
+                           class="sc-hTRkXV sc-hhIiOg sc-eirqVv enlJuL iwisNA dSzotL">Login</button></div>
+                  </div>
+               </div>
+               <% }else{ %>
+                  <div class="sc-fXazdy UjHkE">
+                     <div class="sc-fuISkM cHQuCr">
+                        <div class="dropdown text-end">
+                           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                              <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32"
+                                 class="rounded-circle" />
+                           </a>
+                           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                              <li><a class="dropdown-item" href="#">New project...</a></li>
+                              <li><a class="dropdown-item" href="#">Settings</a></li>
+                              <li><a class="dropdown-item" href="#">Profile</a></li>
+                              <li>
+                                 <hr class="dropdown-divider" />
+                              </li>
+                              <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <% }%>
+         </div>
+         <div class="site_content site_content--winter">
+            <div class="section_left" tabindex="0">
+               <div class="chat_section">
+                  <div class="chat_rooms ">
+                     <div class="chat_rooms_head">
+                        <div class="chat_lang">
+                           <div class="chat_lang_hold chans_2">
+                              <div class="tab selectedChannel small notClosable" title="English" data-target="0"><img
+                                    class="chan_img"
+                                    src="https://icon-library.com/images/world-icon-png/world-icon-png-4.jpg"
+                                    alt="English"></span></div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="chat_collapse"><span class="icon-angle-double-left "></span></a>
+                     <div class="chatting_chat_msgs">
+                        <div class="top-gradient"></div>
+                        <div class="chat_input_hold">
+                           <div class="chat_msgs">
+                              <ul class="messages global" style="padding-left: 0;">
+                              </ul>
+                           </div>
+                           <div class="chat_input_contain">
+                              <input type="text" class="chat_input" maxlength="500" placeholder="Chat"><span
+                                 class="chat_send"><i class="fas fa-paper-plane"></i>
+                              </span>
+                              <div><a class="emoji"><i class="fas fa-times"></i>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="spinner-pre-loader"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section_right">
+               <!-- CONTENTE -->
+               <div class="sc-dprnXS eyUYsL">
+                  <div class="sc-kMGnOH gIgWXs">
+                     <div class="sc-eLSyJA lJvlA" style=" flex: 0 0 25%; transform: translate(14%, 17%); margin: 0">
+                        <a
+                           href="/app/trade/exchange?token=pnQOYivZvN56ioC89DXfzSMc1364yZF85nxEkMPw8vgM8XM2iOyVQUnaPersWwGo">
+                        </a>
+                        <div class="item">
+                           <a
+                              href="/app/trade/exchange?token=pnQOYivZvN56ioC89DXfzSMc1364yZF85nxEkMPw8vgM8XM2iOyVQUnaPersWwGo">
+                              <div class="modal-items-evolution add"
+                                 style="background: linear-gradient(to bottom, #9900cc 0%, #ff99cc 100%);">
+                                 <div class="title">
+                                    <h3 style="color: rgb(0 2 0);">Title</h3>
+                                 </div>
+                                 <div class="modal-items-item" style="background: rgb(239 239 239 / 0%);">
+                                    <div class="owner">
+                                       <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32"
+                                          height="32" class="rounded-circle avatar" data-toggle="tooltip"
+                                          data-bs-placement="bottom" data-html="true" title=""
+                                          data-bs-original-title="<b style='color: #ffc659'>eduh123</b><br><span>Description</span>">
+                                    </div>
+                                    <img src="/images/icons/diamond.png" class="item" style="filter: opacity(1);">
+                                    <div class="category-imgs item list">
+
+                                    </div>
+                                 </div>
+                                 <!--  <div class="css-12tf9og" style="background: rgb(214 214 214);color: rgb(155, 134, 95);">
                                    <span class="css-rjdkb">
                                       <svg class="css-qc1t6j" viewBox="0 0 24 24">
                                          <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path>
@@ -111,88 +134,110 @@
                                       522K
                                    </span>
                                    </div>-->
-                             </div>
-                          </a>
-                       </div>
-                    </div>
-                    <div class="col-md-10 mx-auto col-lg-6" style="    margin-left: 10%;">
-                       <div class="p-4 p-md-5 border rounded-3 bg-light">
-                          <div class="alert alert-warning public" role="alert" style="background-color: #f9ca04; display: none;">With the option Public session disabled, you will receive a private link, with this link, send it to a friend.
-                          </div>
-                          <div class="form-floating mb-3">
-                             <input type="text" class="form-control" maxlength="40" id="Title-input">
-                             <label for="Title-input" style="color: #000;">Title</label>
-                          </div>
-                          <div class="form-floating mb-3" style="text-align: center;">
-                             <span style="color: #000">Select the categories of items you are interested in.</span>
-                             <div class="category-imgs">
-                                <img data-category="0" src="/images/weapons/category/Rifle.png">
-                                <img data-category="1" src="/images/weapons/category/Shot.png">
-                                <img data-category="2" src="/images/weapons/category/Sniper.png">
-                                <img data-category="3" src="/images/weapons/category/Sub.png">
-                             </div>
-                             </br>
-                             <span style="color: #000">Describe your trade in 50 letters.</span>
-                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="Input-description" maxlength="50" height="60" rows="3" style="resize: none;"></textarea>
-                                <label for="Input-description" style="color: #000;">Description</label>
-                             </div>
-                             <div class="form-floating mb-3" style="text-align: center;">
-                                <span style="color: #000">Customize the thumbnail.</span>
-                                <div class="icons-imgs">
-                                   <img width="50" data-thumb="1" class="selected" src="/images/icons/diamond.png">
-                                   <img width="50" data-thumb="2" src="/images/icons/sla.png">
-                                   <img width="50" data-thumb="3" src="/images/icons/star-blue.png">
-                                   <img width="50" data-thumb="4" src="/images/icons/star-red.png">
-                                   <img width="50" data-thumb="5" src="/images/icons/weapon.png">
-                                </div>
-                             </div>
-                             <div class="form-floating mb-3" style="text-align: center;">
-                                <span style="color: #000">Now finish customizing the background!</span>
-                                <nav aria-label="...">
-                                   <ul class="pagination pagination-lg" style="justify-content: center;">
-                                      <a href="#" data-background="0">
-                                         <div style="background: linear-gradient(180deg, #46c7fa, #f494c5);border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="1">
-                                         <div style="background: linear-gradient(180deg, red, yellow);border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="2">
-                                         <div style="background: linear-gradient(rgb(0, 0, 153) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="3">
-                                         <div style="background: linear-gradient(rgb(0, 204, 102) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="4">
-                                         <div style="background: linear-gradient(rgb(153, 0, 204) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="5">
-                                         <div style="background: linear-gradient(rgb(255, 204, 0) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="6">
-                                         <div style="background: linear-gradient(rgb(255, 255, 255) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                      <a href="#" data-background="7">
-                                         <div style="background: linear-gradient(rgb(255, 0, 255) 0%, rgb(102, 153, 255) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                        
-                                      </a>
-                                      <a href="#" data-background="8">
-                                         <div style="background: linear-gradient(rgb(153, 255, 102) 0%, rgb(102, 153, 255) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;"></div>
-                                      </a>
-                                   </ul>
-                                </nav>
-                             </div>
-                             <div class="form-check form-switch text-muted" style="    text-align: left;">
-                                <label class="form-check-label" for="Input-public-check">Public trade</label>
-                                <input class="form-check-input" type="checkbox" id="Input-public-check" checked>
-                             </div>
-                          </div>
-                          <button class="w-100 btn btn-lg btn-primary" type="submit" style="background: #fb207c; border-color: #f7f7f8;">Create</button>
-                          <hr class="my-4">
-                          <small class="text-muted">Your trade will not be visible to you in the trade list.</small>
-                       </div>
-                    </div>
-                    <!-- Paginacao
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-md-10 mx-auto col-lg-6" style="    margin-left: 10%;">
+                        <div class="p-4 p-md-5 border rounded-3 bg-light">
+                           <div class="alert alert-warning public" role="alert"
+                              style="background-color: #f9ca04; display: none;">With the option Public session disabled,
+                              you will receive a private link, with this link, send it to a friend.
+                           </div>
+                           <div class="form-floating mb-3">
+                              <input type="text" class="form-control" maxlength="40" id="Title-input">
+                              <label for="Title-input" style="color: #000;">Title</label>
+                           </div>
+                           <div class="form-floating mb-3" style="text-align: center;">
+                              <span style="color: #000">Select the categories of items you are interested in.</span>
+                              <div class="category-imgs">
+                                 <img data-category="0" src="/images/weapons/category/Rifle.png">
+                                 <img data-category="1" src="/images/weapons/category/Shot.png">
+                                 <img data-category="2" src="/images/weapons/category/Sniper.png">
+                                 <img data-category="3" src="/images/weapons/category/Sub.png">
+                              </div>
+                              </br>
+                              <span style="color: #000">Describe your trade in 50 letters.</span>
+                              <div class="form-floating mb-3">
+                                 <textarea class="form-control" id="Input-description" maxlength="50" height="60"
+                                    rows="3" style="resize: none;"></textarea>
+                                 <label for="Input-description" style="color: #000;">Description</label>
+                              </div>
+                              <div class="form-floating mb-3" style="text-align: center;">
+                                 <span style="color: #000">Customize the thumbnail.</span>
+                                 <div class="icons-imgs">
+                                    <img width="50" data-thumb="1" class="selected" src="/images/icons/diamond.png">
+                                    <img width="50" data-thumb="2" src="/images/icons/sla.png">
+                                    <img width="50" data-thumb="3" src="/images/icons/star-blue.png">
+                                    <img width="50" data-thumb="4" src="/images/icons/star-red.png">
+                                    <img width="50" data-thumb="5" src="/images/icons/weapon.png">
+                                 </div>
+                              </div>
+                              <div class="form-floating mb-3" style="text-align: center;">
+                                 <span style="color: #000">Now finish customizing the background!</span>
+                                 <nav aria-label="...">
+                                    <ul class="pagination pagination-lg" style="justify-content: center;">
+                                       <a href="#" data-background="0">
+                                          <div
+                                             style="background: linear-gradient(180deg, #46c7fa, #f494c5);border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="1">
+                                          <div
+                                             style="background: linear-gradient(180deg, red, yellow);border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="2">
+                                          <div
+                                             style="background: linear-gradient(rgb(0, 0, 153) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="3">
+                                          <div
+                                             style="background: linear-gradient(rgb(0, 204, 102) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="4">
+                                          <div
+                                             style="background: linear-gradient(rgb(153, 0, 204) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="5">
+                                          <div
+                                             style="background: linear-gradient(rgb(255, 204, 0) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="6">
+                                          <div
+                                             style="background: linear-gradient(rgb(255, 255, 255) 0%, rgb(255, 153, 204) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                       <a href="#" data-background="7">
+                                          <div
+                                             style="background: linear-gradient(rgb(255, 0, 255) 0%, rgb(102, 153, 255) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+
+                                       </a>
+                                       <a href="#" data-background="8">
+                                          <div
+                                             style="background: linear-gradient(rgb(153, 255, 102) 0%, rgb(102, 153, 255) 100%); border: 1px solid #232c31;padding: 23px;width: 23px;-webkit-border-radius:  91px;-moz-border-radius:  91px;border-radius: 100%;">
+                                          </div>
+                                       </a>
+                                    </ul>
+                                 </nav>
+                              </div>
+                              <div class="form-check form-switch text-muted" style="    text-align: left;">
+                                 <label class="form-check-label" for="Input-public-check">Public trade</label>
+                                 <input class="form-check-input" type="checkbox" id="Input-public-check" checked>
+                              </div>
+                           </div>
+                           <button class="w-100 btn btn-lg btn-primary" type="submit"
+                              style="background: #fb207c; border-color: #f7f7f8;">Create</button>
+                           <hr class="my-4">
+                           <small class="text-muted">Your trade will not be visible to you in the trade list.</small>
+                        </div>
+                     </div>
+                     <!-- Paginacao
                        <div class="css-1vbvbwv">
                           <a class="css-1o8a808" href="/dark?page=1">1</a>
                           <a class="css-183f0xo" href="/dark?page=2">2</a>
@@ -202,103 +247,119 @@
                           <a class="css-183f0xo" href="/dark?page=42">...42</a>
                        </div>
                         -->
-                 </div>
-              </div>
-           </div>
-        </div>
-     </div>
-     <div id="footer" class="footer  chatActive">
-        <div class="footer__links">
-           <div class="footer__container center flex">
-              <div class="links">
-                 <div class="col">
-                    <h5>Info</h5>
-                    <ul>
-                       <li><a href="/help#what-is-gamdom">About Us</a></li>
-                       <li><a href="/support">Careers</a></li>
-                       <li><a href="/support">Partnership</a></li>
-                       <li><a href="/terms">TOS</a></li>
-                       <li><a href="/refundpolicy">Policies</a></li>
-                       <li><a href="/fair">Provably Fair</a></li>
-                    </ul>
-                 </div>
-                 <div class="col">
-                    <h5>Promotional</h5>
-                    <ul>
-                       <li><a href="/profile">Rewards</a></li>
-                       <li><a href="/namepromotion">Name Promotion</a></li>
-                       <li><a href="/affiliates">Affiliates</a></li>
-                    </ul>
-                 </div>
-                 <div class="col">
-                    <h5>Games</h5>
-                    <ul>
-                       <li><a href="/casino">Slots</a></li>
-                       <li><a href="/crash">Crash</a></li>
-                       <li></li>
-                       <li><a href="/roulette">Roulette</a></li>
-                       <li><a href="/hilo">HiLo</a></li>
-                       <li></li>
-                       <li><a href="/casino">Casino</a></li>
-                    </ul>
-                 </div>
-                 <div class="col">
-                    <h5>Support</h5>
-                    <ul>
-                       <li><a href="/support">Contact Us</a></li>
-                       <li><a href="/help">FAQ</a></li>
-                    </ul>
-                 </div>
-              </div>
-              <div class="socials">
-                 <div class="col">
-                    <h5>Social Media</h5>
-                    <ul>
-                       <li><a href="//twitter.com/GamdomOfficial" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-twitter"></i><span>Follow our Twitter</span></a></li>
-                       <li><a href="//www.instagram.com/officialgamdom/" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-instagram"></i><span>Follow our Instagram</span></a></li>
-                       <li><a href="//vk.com/official_gamdom" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-vk"></i><span>Follow our VK</span></a></li>
-                    </ul>
-                 </div>
-                 <div class="col">
-                    <h5>&nbsp;</h5>
-                    <ul>
-                       <li><a href="//t.me/joinchat/DMvkn1i2MVPbdxyb04KIMA" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-telegram-icon"></i><span>Join our Telegram</span></a></li>
-                       <li><a href="//discord.gg/NxHSCquG9v" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-discord-icon"></i><span>Join our Discord</span></a></li>
-                       <li><a href="//www.youtube.com/channel/UCehn0455SQyGJ9td_NyLp3w" rel="noreferrer noopener nofollow" target="_blank"><i class="icon-youtube-icon"></i><span>Subscribe on Youtube</span></a></li>
-                    </ul>
-                 </div>
-              </div>
-              <div class="warnings">
-                 <div class="row"><a href="https://www.gamstop.co.uk/" rel="noreferrer noopener nofollow" target="_blank"></a><a href="https://www.gamcare.org.uk/" rel="noreferrer noopener nofollow" target="_blank"><img src="/build/Gamcare.b8257c67a1e0511df15f961365d9f12b.svg" alt="Gamcare"></a></div>
-                 <div class="row"><a href="https://www.begambleaware.org/" rel="noreferrer noopener nofollow" target="_blank"><img src="/build/Aware.c672ed7e6c3889f4f5801b36b44e89b0.193.png" alt="Aware"></a></div>
-                 <div class="row row--full">
-                    <div class="text">Warning: Gambling can be addictive</div>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div class="footer__copyright">
-           <div class="footer__container center flex space">
-              <div class="company">
-                 <div class="egaming"><a href="https://licensing.gaming-curacao.com/validator/?lh=bb390de0015095aeb8b85462bb9a7480" rel="noopener nofollow" target="_blank"><img src="/build/GC.d2fa9bcc5268d4f88d3ea5f4a4b09f20.208.png" alt=""></a></div>
-                 <div class="text">Copyright © 2016-2021 Smein Hosting N.V. Abraham de Veerstraat 9, Willemstad, Curacao (Company Registration No. 141727)<br>Payment processing: Vilnius IT Solutions UAB, Ateities g. 31B-101, LT-06326 Vilnius (Company Registration No. 304988128)</div>
-              </div>
-              <div class="providers">
-                 <div class="payments"><img src="/build/mastercard.61e32d1df769c9f27c3bc9063b883873.svg" alt="Card"><img src="/build/ecopayz.1622781df768524115c803d3ce62a438.svg" alt="Ecopayz"></div>
-              </div>
-           </div>
-        </div>
-        <span style="display: none;"></span><span style="display: none;"></span>
-     </div>
-  </div>
-  </div>
-  <script
-     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-     crossorigin="anonymous"
-     ></script>
-  <script src="/js/chat/AppChat.js"></script>
-  <script src="/js/trade/AppTrade.js"></script>
-  <script src="/js/trade/CreateTrade.js"></script>
-  <script src="/js/app.js"></script>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footer" class="footer  chatActive">
+         <div class="footer__links">
+            <div class="footer__container center flex">
+               <div class="links">
+                  <div class="col">
+                     <h5>Info</h5>
+                     <ul>
+                        <li><a href="/help#what-is-gamdom">About Us</a></li>
+                        <li><a href="/support">Careers</a></li>
+                        <li><a href="/support">Partnership</a></li>
+                        <li><a href="/terms">TOS</a></li>
+                        <li><a href="/refundpolicy">Policies</a></li>
+                        <li><a href="/fair">Provably Fair</a></li>
+                     </ul>
+                  </div>
+                  <div class="col">
+                     <h5>Promotional</h5>
+                     <ul>
+                        <li><a href="/profile">Rewards</a></li>
+                        <li><a href="/namepromotion">Name Promotion</a></li>
+                        <li><a href="/affiliates">Affiliates</a></li>
+                     </ul>
+                  </div>
+                  <div class="col">
+                     <h5>Games</h5>
+                     <ul>
+                        <li><a href="/casino">Slots</a></li>
+                        <li><a href="/crash">Crash</a></li>
+                        <li></li>
+                        <li><a href="/roulette">Roulette</a></li>
+                        <li><a href="/hilo">HiLo</a></li>
+                        <li></li>
+                        <li><a href="/casino">Casino</a></li>
+                     </ul>
+                  </div>
+                  <div class="col">
+                     <h5>Support</h5>
+                     <ul>
+                        <li><a href="/support">Contact Us</a></li>
+                        <li><a href="/help">FAQ</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="socials">
+                  <div class="col">
+                     <h5>Social Media</h5>
+                     <ul>
+                        <li><a href="//twitter.com/GamdomOfficial" rel="noreferrer noopener nofollow" target="_blank"><i
+                                 class="icon-twitter"></i><span>Follow our Twitter</span></a></li>
+                        <li><a href="//www.instagram.com/officialgamdom/" rel="noreferrer noopener nofollow"
+                              target="_blank"><i class="icon-instagram"></i><span>Follow our Instagram</span></a></li>
+                        <li><a href="//vk.com/official_gamdom" rel="noreferrer noopener nofollow" target="_blank"><i
+                                 class="icon-vk"></i><span>Follow our VK</span></a></li>
+                     </ul>
+                  </div>
+                  <div class="col">
+                     <h5>&nbsp;</h5>
+                     <ul>
+                        <li><a href="//t.me/joinchat/DMvkn1i2MVPbdxyb04KIMA" rel="noreferrer noopener nofollow"
+                              target="_blank"><i class="icon-telegram-icon"></i><span>Join our Telegram</span></a></li>
+                        <li><a href="//discord.gg/NxHSCquG9v" rel="noreferrer noopener nofollow" target="_blank"><i
+                                 class="icon-discord-icon"></i><span>Join our Discord</span></a></li>
+                        <li><a href="//www.youtube.com/channel/UCehn0455SQyGJ9td_NyLp3w"
+                              rel="noreferrer noopener nofollow" target="_blank"><i
+                                 class="icon-youtube-icon"></i><span>Subscribe on Youtube</span></a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="warnings">
+                  <div class="row"><a href="https://www.gamstop.co.uk/" rel="noreferrer noopener nofollow"
+                        target="_blank"></a><a href="https://www.gamcare.org.uk/" rel="noreferrer noopener nofollow"
+                        target="_blank"><img src="/build/Gamcare.b8257c67a1e0511df15f961365d9f12b.svg"
+                           alt="Gamcare"></a></div>
+                  <div class="row"><a href="https://www.begambleaware.org/" rel="noreferrer noopener nofollow"
+                        target="_blank"><img src="/build/Aware.c672ed7e6c3889f4f5801b36b44e89b0.193.png"
+                           alt="Aware"></a></div>
+                  <div class="row row--full">
+                     <div class="text">Warning: Gambling can be addictive</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer__copyright">
+            <div class="footer__container center flex space">
+               <div class="company">
+                  <div class="egaming"><a
+                        href="https://licensing.gaming-curacao.com/validator/?lh=bb390de0015095aeb8b85462bb9a7480"
+                        rel="noopener nofollow" target="_blank"><img
+                           src="/build/GC.d2fa9bcc5268d4f88d3ea5f4a4b09f20.208.png" alt=""></a></div>
+                  <div class="text">Copyright © 2016-2021 Smein Hosting N.V. Abraham de Veerstraat 9, Willemstad,
+                     Curacao (Company Registration No. 141727)<br>Payment processing: Vilnius IT Solutions UAB, Ateities
+                     g. 31B-101, LT-06326 Vilnius (Company Registration No. 304988128)</div>
+               </div>
+               <div class="providers">
+                  <div class="payments"><img src="/build/mastercard.61e32d1df769c9f27c3bc9063b883873.svg"
+                        alt="Card"><img src="/build/ecopayz.1622781df768524115c803d3ce62a438.svg" alt="Ecopayz"></div>
+               </div>
+            </div>
+         </div>
+         <span style="display: none;"></span><span style="display: none;"></span>
+      </div>
+   </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+   <script src="/js/chat/AppChat.js"></script>
+   <script src="/js/trade/AppTrade.js"></script>
+   <script src="/js/trade/CreateTrade.js"></script>
+   <script src="/js/app.js"></script>
 </body>

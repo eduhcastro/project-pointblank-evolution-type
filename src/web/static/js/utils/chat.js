@@ -1,4 +1,5 @@
 var domain = "http://localhost:8080"
+
 const Chat = {
 
   injectMessage: (data) => {

@@ -21,6 +21,7 @@ export default function(io: any, socket: any){
 
   socket.on('SendMessage', async function(message: any) {
 
+
     const userInfo = socket.handshake.session.user
 
     if(Controller.handler(message, userInfo)){
@@ -38,7 +39,10 @@ export default function(io: any, socket: any){
         name: userInfo.login.slice(0, -3)+'***',
         message: message.message,
       }
-    
+
+      if(typeof message.token !== 'undefined'){
+        return io.to('Chat').emit(`Message::${message.token}`, messageOpts)
+      }
 
     NodeJsonCore.setData("Messages", messageOpts)
     io.to('Chat').emit('Message', messageOpts)

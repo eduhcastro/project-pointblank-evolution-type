@@ -47,6 +47,12 @@ class NodeJson {
     }).db.push(`/${data}[]`, params, true)
   }
 
+  public cleanData(data: string) {
+    console.log('acessei')
+    this.acessData({
+      data
+    }).db.delete(`/${data}`)
+  }
 }
 
 

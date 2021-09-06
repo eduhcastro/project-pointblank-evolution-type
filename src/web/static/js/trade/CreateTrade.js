@@ -193,10 +193,10 @@ class CreateTrade {
               }
               if (Public === 'true') {
                   alert("Copy the link and send to your frined")
-                  window.open(domain + "/app/trade/exchange/" + e.sessionkey)
+                  window.open(domain + "/app/trade/exchange2/" + e.sessionkey)
                   return window.location.replace(domain);
               }
-              window.open(domain + "/app/trade/exchange/?token=" + e.sessionkey)
+              window.open(domain + "/app/trade/exchange2/?token=" + e.sessionkey)
               return window.location.replace(domain)
           })
       })

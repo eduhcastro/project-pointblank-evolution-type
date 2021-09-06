@@ -1,0 +1,321 @@
+<head>
+   <title>PointBlank Future</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.4.55/css/materialdesignicons.min.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
+   <link rel="stylesheet" href="/vendor/emojionearea/emojionearea.min.css">
+   <script type="text/javascript" src="/vendor/emojionearea/emojionearea.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="/css/cssExchange.css">
+   <link rel="stylesheet" type="text/css" href="/components/trade/css/new.css?v=2">
+   <script src="/components/trade/js/tools.js"></script>
+   <link rel="stylesheet" href='/css/cssNewNew.css?v=10' />
+   <script src="/components/trade/js/user.js"></script>
+   <script>
+      User = '<%= user.name %>';
+   </script>
+   <style>
+      .messages.trade{
+         display: none;
+      }
+   </style>
+</head>
+<body>
+   <div id="router-container">
+      <div class="viewport normal-design ">
+         <div class="sc-bTDOke dXiuJH winter--snow_background">
+            <button class="sc-dsXzNU iqNwfp burger">
+               <div></div>
+               <div></div>
+               <div></div>
+            </button>
+            <div class="sc-lbVvki ghCdOs">
+               <div class="sc-dFRpbK bFgzLZ"><a aria-current="page" class="logo active" href="/">
+                  <img src="https://www.pikpng.com/pngl/b/54-540351_point-blank-pointblank-png-clipart.png"
+                     alt="Gamdom Logo" width="50"></a>
+               </div>
+               <div class="sc-hOPeYd eXirsP" style="border-bottom: solid; background-color: transparent;"><a
+                  href="#">Trades</a></div>
+            </div>
+            <% if (!user.name) { %>
+            <div class="sc-fXazdy UjHkE">
+               <div class="sc-fuISkM cHQuCr">
+                  <div class="sc-cOifOu haQoIp" style="background-color: transparent;"><button
+                     class="sc-hTRkXV sc-hhIiOg sc-eirqVv enlJuL iwisNA dSzotL">Login</button></div>
+               </div>
+            </div>
+            <% }else{ %>
+            <div class="sc-fXazdy UjHkE">
+               <div class="sc-fuISkM cHQuCr">
+                  <div class="dropdown text-end">
+                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                     <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32"
+                        class="rounded-circle" />
+                     </a>
+                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                           <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <% }%>
+         </div>
+         <div class="site_content site_content--winter">
+            <div class="section_left" tabindex="0">
+               <div class="chat_section">
+                  <div class="chat_rooms ">
+                     <div class="chat_rooms_head">
+                        <div class="chat_lang">
+                           <div class="chat_lang_hold chans_2">
+                              <div class="tab  small " title="English" data-target="0"><img class="chan_img"
+                                 src="https://icon-library.com/images/world-icon-png/world-icon-png-4.jpg"
+                                 alt="English"></span></div>
+                              <div class="tab selectedChannel small notClosable" title="Newcomers" data-target="1"><img class="chan_img"
+                                 src="https://www.pngrepo.com/png/228308/512/exchange-coin.png"
+                                 alt="Newcomers"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="chat_collapse"><span class="icon-angle-double-left "></span></a>
+                     <div class="chatting_chat_msgs">
+                        <div class="top-gradient"></div>
+                        <div class="chat_input_hold">
+                           <div class="chat_msgs">
+                              <ul class="messages global" style="padding-left: 0;"></ul>
+                              <ul class="messages trade" style="padding-left: 0;">
+                                 <li data-message="aviso-privado" class="chat_msg msg-user-message">
+                                    <div class="colorbar user"></div>
+                                    <span class="user chat_user">
+                                       <a class="chat_user_name">Hey!</a>
+                                    </span>
+                                       <span class="chat_cont" style="font-style: italic;color: #dedede;">You are in a private chat, only you and the Participant have access. Have a great exchange!</span>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="chat_input_contain">
+                              <input type="text" class="chat_input" id="teste1234" maxlength="200"
+                                 placeholder="Chat"><span class="chat_send"><i class="fas fa-paper-plane"></i>
+                              </span>
+                              <div><a class="emoji"><i class="fas fa-times"></i>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="spinner-pre-loader"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section_right">
+               <!-- CONTENTE -->
+               <div class="sc-dprnXS eyUYsL">
+                  <div class="sc-kMGnOH gIgWXs">
+                     <div class="sc-kqfmhM fOrnJt">
+                        <div class="sc-ffgBur OeZLy" style="display: flex;
+                           flex-wrap: wrap;">
+                           <!-- COPIADO INICIO -->
+                           <section data-v-21399cf3="" class="section" style="    width: 100%;">
+                              <div data-v-21399cf3="" class="columns is-desktop">
+                                 <div data-v-21399cf3="" class="column">
+                                    <div style="text-align: center;">
+                                       <img
+                                          src="<%= user.personalization[0].picture %>"
+                                          class="rounded-circle" width="32">
+                                       <p><%= user.name.slice(0, -3)+'***' %></p>
+                                    </div>
+                                    <div data-v-21399cf3="" class="panel offer">
+                                       <div data-v-21399cf3="" class="panel-heading">
+                                          <div data-v-21399cf3="">You Offer</div>
+                                          <div data-v-21399cf3="" id="youroferitemmoney"><span
+                                             id="youroferitemmoney1">0</span> items - $<span
+                                             id="youroferitemmoney2">0</span>.00</div>
+                                       </div>
+                                       <div data-v-21399cf3="" class="panel-block items is-paddingless youoffer">
+                                       </div>
+                                       <div id="LockedUser" class="lockeuserdiv" style="display: none;">
+                                          <span class="lockpreguicas" id="usernamelock">eduh123 Pronto!</span>
+                                          <span class="lockpreguicas2">Não é possivel adicionar/retirar items enquanto
+                                          estiver no estado
+                                          <span style="color: #00adff;">Pronto</span></span>
+                                          <span class="lockpreguicas3">Nota: caso o participante remova/adicione algum
+                                          item, você saira desse estado automaticamente</span>
+                                          <img src="/components/trade/imgs/gifs/padlock.gif" class="lockgif">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div data-v-21399cf3="" class="column has-text-centered vertical-center center-width">
+                                    <button data-v-21399cf3="" type="button"
+                                       class="button mb-2 is-medium is-success is-fullwidth">
+                                       <span class="icon is-small"><i class="mdi mdi-swap-horizontal"></i></span><span
+                                          class="pronto">Pronto</span>
+                                       <!---->
+                                    </button>
+                                 </div>
+                                 <div data-v-21399cf3="" class="column">
+                                    <div id="info-participant" style="text-align: center;">
+                                       <img src="/images/users/unk.jpg" class="rounded-circle" width="32">
+                                       <p>Aguardando...</p>
+                                    </div>
+                                    <div data-v-21399cf3="" class="panel offer">
+                                       <div data-v-21399cf3="" class="panel-heading">
+                                          <div data-v-21399cf3="">You Receive</div>
+                                          <div data-v-21399cf3="" id="CountItemMoneyFriend">0 items - $0.00</div>
+                                       </div>
+                                       <div data-v-21399cf3="" class="panel-block items is-paddingless frineditems">
+                                          <div class="divleft" id="cagado">
+                                             <p style="
+                                                text-align: center;
+                                                font-size: 1.2em;
+                                                margin-top: 4em;
+                                                "> Aguardando um participante...</p>
+                                             <img
+                                                src="https://d18xl8ggo6ud4h.cloudfront.net/wp-content/uploads/2019/04/loading.fef1f20.gif"
+                                                class="gifawaituser" id="AwaitUserImg">
+                                          </div>
+                                       </div>
+                                       <div id="LockedUser2" class="lockeuserdiv" style="display: none;">
+                                          <span class="lockpreguicas" id="usernamelock2">eduhcastro19 Pronto!</span>
+                                          <span class="lockpreguicas2 friend">O Usuario está esperando voce aceitar a
+                                          troca!</span>
+                                          <span class="lockpreguicas3 friend">Nota: se voce retirar/adicionar algum
+                                          item, o usuario terá que ficar pronto novamente</span>
+                                          <img src="/components/trade/imgs/gifs/padlock.gif" class="lockgif">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div data-v-21399cf3="" class="columns is-desktop">
+                                 <div data-v-21399cf3="" class="column">
+                                    <div data-v-21399cf3="" class="panel inventory">
+                                       <p data-v-21399cf3="" class="panel-heading">Your Inventory</p>
+                                       <div data-v-21399cf3="" class="panel-block">
+                                          <div data-v-21399cf3="" class="field" style="width: 100%;">
+                                             <!---->
+                                             <div class="field-body">
+                                                <div class="field has-addons">
+                                                   <!---->
+                                                   <div data-v-21399cf3="" class="control is-expanded">
+                                                      <div data-v-21399cf3=""
+                                                         class="control has-icons-left  is-clearfix">
+                                                         <input type="search" autocomplete="on" id="SearchOwner"
+                                                            placeholder="Search for items..." class="input"><span
+                                                            class="icon is-left"><i
+                                                            class="mdi mdi-magnify mdi-24px"></i></span>
+                                                         <!---->
+                                                         <!---->
+                                                      </div>
+                                                   </div>
+                                                   <div data-v-21399cf3="" class="control">
+                                                      <div data-v-21399cf3="" class="control">
+                                                         <span class="select">
+                                                            <select id="SortItens">
+                                                               <option data-v-21399cf3="" value="0">Expensive first
+                                                               </option>
+                                                               <option data-v-21399cf3="" value="1">Lowest lock</option>
+                                                               <option data-v-21399cf3="" value="2">Longest time
+                                                               </option>
+                                                               <option data-v-21399cf3="" value="3">Shorter time
+                                                               </option>
+                                                            </select>
+                                                         </span>
+                                                         <!---->
+                                                      </div>
+                                                   </div>
+                                                   <div data-v-21399cf3="" class="control">
+                                                      <button data-v-21399cf3="" type="button" class="button">
+                                                         <span class="icon is-small"><i class="mdi mdi-sync"></i></span>
+                                                         <!---->
+                                                         <!---->
+                                                      </button>
+                                                   </div>
+                                                   <!---->
+                                                </div>
+                                             </div>
+                                             <!---->
+                                          </div>
+                                       </div>
+                                       <div data-v-21399cf3="" class="panel-block items owner">
+                                          <!-- TELA DONO
+                                             <div data-v-13d367a4="" data-v-21399cf3="" class="item" style="background-image: url('/imgs/AUG_A3_Cupid.png');">
+                                             <span data-v-13d367a4="" class="q">x1</span><span data-v-13d367a4="" class="tl">15 DAYS</span><span data-v-13d367a4="" class="p">$1,010.31</span><span data-v-13d367a4="" class="ex">AUG Cupid</span>
+                                             </div>  --->
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div data-v-21399cf3="" class="column">
+                                    <div data-v-21399cf3="" class="panel inventory">
+                                       <p data-v-21399cf3="" class="panel-heading">Friend Inventory</p>
+                                       <div data-v-21399cf3="" class="panel-block">
+                                          <div data-v-21399cf3="" class="field" style="width: 100%;">
+                                             <!---->
+                                             <div class="field-body">
+                                                <div class="field has-addons">
+                                                   <!---->
+                                                   <div data-v-21399cf3="" class="control is-expanded">
+                                                      <div data-v-21399cf3=""
+                                                         class="control has-icons-left  is-clearfix">
+                                                      </div>
+                                                   </div>
+                                                   <div data-v-21399cf3="" class="control">
+                                                      <div data-v-21399cf3="" class="control">
+                                                         <!---->
+                                                      </div>
+                                                   </div>
+                                                   <div data-v-21399cf3="" class="control">
+                                                   </div>
+                                                   <!---->
+                                                </div>
+                                             </div>
+                                             <!---->
+                                          </div>
+                                       </div>
+                                       <div data-v-21399cf3="" class="panel-block items is-paddingless xyz">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div id="AlertFinishTrade" style="display: none;">
+                                 </div>
+                                 <!-- 
+                                    <div style="top: 105px; position: absolute; width: 678px; background: rgba(0, 0, 0, 0.74); height: 1197px; margin: auto auto auto 959px; display: block;" id="cagado">  <span style="margin-top: 38%;position: absolute;margin-left: 30%;font-size: 20px;">O Usuario #teste123 entrou</span>
+                                    <span style="margin-top: 42%;position: absolute;margin-left: 38%;font-size: 15px;">Aguarde 5 segundos..</span>
+                                                  <img src="/imgs/Done.gif" style="
+                                                      position: absolute;
+                                                      margin-top: 41%;
+                                                      margin-left: 38%;
+                                                      width: 150px;
+                                                  "></div>-->
+                                 <!-- <div style="top: 105px; position: absolute; width: 678px; background: rgba(0, 0, 0, 0.74); height: 1197px; margin: auto auto auto 959px; display: block;" id="cagado">  
+                                    <span style="margin-top: 38%;position: absolute;margin-left: 36%;font-size: 20px;" id="AwaitUser">O Participante saiu!</span>
+                                    <span style="margin-top: 42%;position: absolute;margin-left: 31%;font-size: 15px;" id="AwaitUser">Aguardando resposta do usuario (5s)</span>
+                                    <img src="/imgs/Alert.gif" style="position: absolute;margin-top: 46%;margin-left: 46%;width: 51px;" id="AwaitUserImg"></div> -->
+                              </div>
+                           </section>
+                           <!-- COPIADO INICIO -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+   <script src="/js/chat/AppChat.js"></script>
+    <!-- <script src="/js/trade/AppTrade.js"></script>
+   <script src="/js/trade/scripts.js"></script> -->
+   <script src="/js/app.js"></script>
+</body>

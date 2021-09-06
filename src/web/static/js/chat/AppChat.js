@@ -1,54 +1,129 @@
-class AppChat {
-    Web = "http://localhost:8080"
+class AppChat{
+    constructor(tools){
+        this.tools = tools
+    }
     Room = "Chat"
-
     Routes = {
         RoomJoin: `RoomJoin`,
         Load: `Load`,
         Send: `SendMessage`,
-        Message: `Message`
+        Message: `Message`,
+        MessageTrade : () => {
+            return `Message::${this.tools.getParameterByName('token')}`
+        }
     }
 
-    cleanMessages() {
-        if ($(".chat_msgs > ul.messages").children().length > 30) {
-            console.log('XX')
-            for (var i = $(".chat_msgs > ul.messages").children().length; i > 30; i--) {
-                if (i > 30) {
-                    $(".chat_msgs > ul.messages").find('li:first').remove();
+
+    ChatGlobal = {
+
+        cleanMessages() {
+            if ($(".chat_msgs > ul.messages.global").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.global").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.global").find('li:first').remove();
+                    }
                 }
             }
-        }
-    }
-
-    insertMessage(data) {
-        if ($(".chat_msgs > ul.messages").children().length > 30) {
-            console.log('XX')
-            for (var i = $(".chat_msgs > ul.messages").children().length; i > 30; i--) {
-                if (i > 30) {
-                    $(".chat_msgs > ul.messages").find('li:first').remove();
+        },
+    
+        insertMessage(data) {
+            if ($(".chat_msgs > ul.messages.global").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.global").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.global").find('li:first').remove();
+                    }
                 }
             }
-        }
-
-        for (var Messages of data.Messages) {
-            if (typeof $('*[data-message="' + Messages.id + '"]').html() === 'undefined') {
-                $(".chat_msgs > ul.messages").append(` <li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message">
-      <div class="colorbar user"></div>
-      <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
-   </li>`)
-                $('.chat_msgs > ul.messages > li').last().addClass('active-li').focus();
-                $('.chat_msgs > ul.messages > li').removeClass('active-li')
-                $('.chat_msgs > ul.messages > li').removeAttr("tabindex")
+    
+            for (var Messages of data.Messages) {
+                if (typeof $('*[data-message="' + Messages.id + '"]').html() === 'undefined') {
+                    $(".chat_msgs > ul.messages.global").append(` <li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message">
+                    <div class="colorbar user"></div>
+                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
+                    </li>`)
+                    $('.chat_msgs > ul.messages.global > li').last().addClass('active-li').focus();
+                    $('.chat_msgs > ul.messages.global > li').removeClass('active-li')
+                    $('.chat_msgs > ul.messages.global > li').removeAttr("tabindex")
+                }
             }
+        },
+    
+        insertTradeMessage(data) {
+            if ($(".chat_msgs > ul.messages.global").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.global").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.global").find('li:first').remove();
+                    }
+                }
+            }
+        },
+    
+        sendMessage(message, app, self) {
+    
+           //if(getParameterByName('token')){
+           //    return app.emit(`${self.Routes.Send}::${getParameterByName('token')}`, {
+           //     message
+           // })
+           //}
+    
+            app.emit(self.Routes.Send, {
+                message
+            })
         }
     }
 
-    sendMessage(message, app, self) {
-        app.emit(self.Routes.Send, {
-            message
-        })
-    }
+    ChatTrade = {
+        cleanMessages() {
+            if ($(".chat_msgs > ul.messages.trade").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.trade").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.trade").find('li:first').remove();
+                    }
+                }
+            }
+        },
+    
+        insertMessage(data) {
+            if ($(".chat_msgs > ul.messages.trade").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.trade").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.trade").find('li:first').remove();
+                    }
+                }
+            }
+    
+            for (var Messages of data.Messages) {
+                if (typeof $('*[data-message="' + Messages.id + '"]').html() === 'undefined') {
+                    $(".chat_msgs > ul.messages.trade").append(` <li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message">
+                    <div class="colorbar user"></div>
+                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
+                    </li>`)
+                    $('.chat_msgs > ul.messages.trade > li').last().addClass('active-li').focus();
+                    $('.chat_msgs > ul.messages.trade > li').removeClass('active-li')
+                    $('.chat_msgs > ul.messages.trade > li').removeAttr("tabindex")
+                }
+            }
+        },
+    
+        insertTradeMessage(data) {
+            if ($(".chat_msgs > ul.messages.trade").children().length > 30) {
+                for (var i = $(".chat_msgs > ul.messages.trade").children().length; i > 30; i--) {
+                    if (i > 30) {
+                        $(".chat_msgs > ul.messages.trade").find('li:first').remove();
+                    }
+                }
+            }
+        },
+    
+        sendMessage(message, app, self, token) {
+            app.emit(`${self.Routes.Send}`, {
+                message,
+                token
+            })
+        }
 
+    }
+    
     actionsMessages(self, app) {
 
         const SendByIcon = $(".chat_send").click(function () {
@@ -56,9 +131,13 @@ class AppChat {
             if (Mensagem.length === 0) {
                 return alert('Type something first!')
             }
+            if(typeof $('*[data-message="aviso-privado"]') !== 'undefined') $('*[data-message="aviso-privado"]').remove();
             $('input.chat_input').val('')
             $('div.emojionearea-editor').text('')
-            return self.sendMessage(Mensagem, app, self)
+            if($(".tab.small.selectedChannel").attr("data-target") === '0'){
+                return self.ChatGlobal.sendMessage(Mensagem, app, self)
+            }
+            return self.ChatTrade.sendMessage(Mensagem, app, self, getParameterByName('token'))
         })
 
         const CleanInput = $("a.emoji").click(function () {
@@ -76,25 +155,26 @@ class AppChat {
             hidePickerOnBlur: true
         })
 
-        //const SendByKeyPress = $("div.chat_input_contain").keyup(function(e) {
-        //    if ((e.keyCode || e.which) == 13) {
-        //        const Mensagem = $('input.chat_input').val()
-        //        if (Mensagem.length === 0) {
-        //            return alert('Type something first!')
-        //        }
-        //        $('input.chat_input').val('')
-        //        return self.sendMessage(Mensagem, app, self)
-        //    }
-        //})
+
+        const SelectChat = $("div.tab").click(function () {
+            if($(this).attr("data-target") === '0'){
+             $("ul.messages.global").css("display", "block")
+             $("ul.messages.trade").css("display", "none")
+            } else {
+                $("ul.messages.trade").css("display", "block")
+                $("ul.messages.global").css("display", "none") 
+            }
+            $("div.tab").removeClass("selectedChannel")
+            $(this).addClass("selectedChannel")
+        })
+
     }
 
 
-    init() {
+    init(App) {
+
         var Self = this
-        var App = io(this.Web)
-
         App.on('connect', function (self = Self) {
-
             /**
              * Escolhendo minha sala
              */
@@ -118,7 +198,7 @@ class AppChat {
              */
             App.on(self.Routes.Load, (data) => {
                 App.off(self.Routes.Load)
-                self.insertMessage(data.Messages)
+                self.ChatGlobal.insertMessage(data.Messages)
             })
 
             /**
@@ -136,12 +216,21 @@ class AppChat {
              * Recebendo Mensagem
              */
             App.on(self.Routes.Message, (Messages) => {
-                $(".chat_msgs > ul.messages").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
-                $('.chat_msgs > ul.messages > li').last().addClass('active-li').focus();
-                $('.chat_msgs > ul.messages > li').removeClass('active-li')
-                $('.chat_msgs > ul.messages > li').removeAttr("tabindex")
+                $(".chat_msgs > ul.messages.global").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
+                $('.chat_msgs > ul.messages.global > li').last().addClass('active-li').focus();
+                $('.chat_msgs > ul.messages.global > li').removeClass('active-li')
+                $('.chat_msgs > ul.messages.global > li').removeAttr("tabindex")
             })
 
+            /**
+             * Recebendo Mensagem
+             */
+             App.on(self.Routes.MessageTrade(), (Messages) => {
+                $(".chat_msgs > ul.messages.trade").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
+                $('.chat_msgs > ul.messages.trade > li').last().addClass('active-li').focus();
+                $('.chat_msgs > ul.messages.trade > li').removeClass('active-li')
+                $('.chat_msgs > ul.messages.trade > li').removeAttr("tabindex")
+            })
 
             self.actionsMessages(self, App)
         })
@@ -149,5 +238,5 @@ class AppChat {
 }
 
 $(document).ready(function () {
-    new AppChat().init()
+    new AppChat(Tools).init(AppIo)
 })

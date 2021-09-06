@@ -311,7 +311,8 @@ html.classic-design {
 	line-height: 1.1875;
 	position: relative;
 	z-index: 1;
-	padding-bottom: 8px
+	/** padding-bottom: 8px */
+	padding-bottom: 3px 
 }
 
 

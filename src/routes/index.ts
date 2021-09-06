@@ -19,5 +19,5 @@ router.get('/', routers.HomeController)
 router.get('/app/authenticate', middleware.LoggedBlock, routers.AuthController)
 router.get("/app/trade/create", middleware.Logged, routers.CreateTradeController)
 router.get("/app/trade/exchange", middleware.Logged, routers.ExchangeTradeController)
-
+router.get("/app/trade/exchange2", middleware.Logged, routers.ExchangeTradeController2)
 export default router

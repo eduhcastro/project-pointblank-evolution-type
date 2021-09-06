@@ -6,16 +6,16 @@
  * 
  */
 class Trade {
-    Web = "http://localhost:8080"
     Count = 0
     Routes = {
-        RoomJoin:   `RoomJoin`,
-        GetItems:   `${getParameterByName('token')}::getItems`, // OwnerItems: `${getParameterByName('token')}::owneritems`,
-        AddItems :  `${getParameterByName('token')}::addItems`, // Adicionar items ao trade, troca. -> Automatico
-        ReciveItems:`${getParameterByName('token')}::reciveItems`, // Recebendo items adicionado na trade -> Send&Emit
-        RemoveItems:`${getParameterByName('token')}::removeItems`, // Removendo items da trade -> Send&Emit
-        Ready:      `${getParameterByName('token')}::ready`, // Pronto ou Cancelando a trade -> Send&Emit
-        Finish:     `${getParameterByName('token')}::finish`, // Finalizando a Trade
+        Room: `CourrentTrade`,
+        RoomJoin: `RoomJoin`,
+        GetItems: `${getParameterByName('token')}::getItems`, // OwnerItems: `${getParameterByName('token')}::owneritems`,
+        AddItems: `${getParameterByName('token')}::addItems`, // Adicionar items ao trade, troca. -> Automatico
+        ReciveItems: `${getParameterByName('token')}::reciveItems`, // Recebendo items adicionado na trade -> Send&Emit
+        RemoveItems: `${getParameterByName('token')}::removeItems`, // Removendo items da trade -> Send&Emit
+        Ready: `${getParameterByName('token')}::ready`, // Pronto ou Cancelando a trade -> Send&Emit
+        Finish: `${getParameterByName('token')}::finish`, // Finalizando a Trade
         Disconnect: `${getParameterByName('token')}::Disconnect`, // Emit de usuario desconectado
     }
 
@@ -25,7 +25,7 @@ class Trade {
 
             var ItemsUser = {}
 
-            ItemsUser.renderPrize = function(id, nome, count, img, dono, price, reciveUser) {
+            ItemsUser.renderPrize = function (id, nome, count, img, dono, price, reciveUser) {
                 var tpl = "";
                 tpl += `<div data-v-13d367a4="${id}" data-weaponiden= "${id}"class="item chifre" style="background-image: url('/components/trade/imgs/items/${img}');">`;
                 tpl += '	<span data-v-13d367a4=""  data-timeowner="' + count + '" class="tl">' + count + ' DAYS</span>';
@@ -39,7 +39,7 @@ class Trade {
                 }
             }
 
-            items.forEach(function(item) {
+            items.forEach(function (item) {
                 ItemsUser.renderPrize(
                     item.id,
                     item.itemname,
@@ -52,7 +52,7 @@ class Trade {
             })
         },
 
-        Participant: (type, user) => {
+        Participant: (type, user, details) => {
 
             StopIntervall(CountParticipante)
             if (type === "Leave") {
@@ -60,6 +60,8 @@ class Trade {
 
                     if (user.user === 1) {
                         console.log('Participante saiu normalmente')
+                        $("#info-participant").children("p").first().text('Aguardando...')
+                        $("#info-participant").children("img").first().attr("src", "http://localhost:8080/images/users/unk.jpg")
                         $(".panel-block.items.is-paddingless.xyz").empty();
                         $(".panel-block.items.is-paddingless.frineditems").empty()
                         $('#cagado').find('span').remove()
@@ -79,6 +81,10 @@ class Trade {
 
 
             if (type === "Enter") {
+                $("#info-participant").children("p").first().text(user)
+                $("#info-participant").children("img").first().attr("src", details.picture)
+                var UserEnter = new Audio('/sound/user-enter.mp3');
+                UserEnter.play();
                 console.log('Participante Entrou')
                 $('#cagado').find('span').remove()
                 $('#cagado').find('img').remove()
@@ -100,14 +106,14 @@ class Trade {
         },
 
         SortAndSearch: () => {
-            $('#SortItens').on('change', function() {
+            $('#SortItens').on('change', function () {
                 var sortByValue = this.value;
                 $('.panel-block.items.owner div').animate({
                     opacity: "0.0"
                 })
-                setTimeout(function() {
+                setTimeout(function () {
                     if (sortByValue == '0') {
-                        $('.panel-block.items.owner div').sort(function(a, b) {
+                        $('.panel-block.items.owner div').sort(function (a, b) {
                             return $(b).children("span.p").attr("data-priceowner") - $(a).children("span.p").attr("data-priceowner");
                         }).appendTo('.panel-block.items.owner')
                         $('.panel-block.items.owner div').animate({
@@ -115,7 +121,7 @@ class Trade {
                         });
                     }
                     if (sortByValue == '1') {
-                        $('.panel-block.items.owner div').sort(function(a, b) {
+                        $('.panel-block.items.owner div').sort(function (a, b) {
                             return $(a).children("span.p").attr("data-priceowner") - $(b).children("span.p").attr("data-priceowner");
                         }).appendTo('.panel-block.items.owner')
                         $('.panel-block.items.owner div').animate({
@@ -123,7 +129,7 @@ class Trade {
                         });
                     }
                     if (sortByValue == '2') {
-                        $('.panel-block.items.owner div').sort(function(a, b) {
+                        $('.panel-block.items.owner div').sort(function (a, b) {
                             return $(b).children("span.tl").attr("data-timeowner") - $(a).children("span.tl").attr("data-timeowner")
                         }).appendTo('.panel-block.items.owner')
                         $('.panel-block.items.owner div').animate({
@@ -131,7 +137,7 @@ class Trade {
                         });
                     }
                     if (sortByValue == '3') {
-                        $('.panel-block.items.owner div').sort(function(a, b) {
+                        $('.panel-block.items.owner div').sort(function (a, b) {
                             return $(a).children("span.tl").attr("data-timeowner") - $(b).children("span.tl").attr("data-timeowner");
                         }).appendTo('.panel-block.items.owner')
                         $('.panel-block.items.owner div').animate({
@@ -140,10 +146,10 @@ class Trade {
                     }
                 }, 450);
             })
-        
-            $("#SearchOwner").on("keyup", function() {
+
+            $("#SearchOwner").on("keyup", function () {
                 var search = $(this).val().toUpperCase()
-                $(".panel-block.items.owner div").each(function() {
+                $(".panel-block.items.owner div").each(function () {
                     var nameweapon = $(this).children("span.ex").attr("data-nameowner")
                     if (nameweapon.search(new RegExp(search, "i")) < 0) {
                         $(this).fadeOut();
@@ -154,33 +160,33 @@ class Trade {
             })
         },
 
-        MirrorItem(data){
+        MirrorItem(data) {
             if (data.owner !== User) {
                 $('*[data-weaponiden="' + data.id + '"]').appendTo(".panel-block.items.is-paddingless.frineditems")
                 $("#CountItemMoneyFriend").text(`${data.count} items - $${data.value}.00`)
             }
         },
 
-        MirrorItemRemove(data){
+        MirrorItemRemove(data) {
             if (data.owner !== User) {
                 $('*[data-weaponiden="' + data.id + '"]').appendTo(".panel-block.items.is-paddingless.xyz")
                 $("#CountItemMoneyFriend").text(`${data.count} items - $${data.value}.00`)
             }
         },
 
-        UserStatus(data){
-            if(typeof data.irregularity === 'undefined'){
+        UserStatus(data) {
+            if (typeof data.irregularity === 'undefined') {
                 if (data.status) {
                     if (User !== data.user) {
                         $('#LockedUser2').css("display", "block")
                         $('#usernamelock2').text(`${data.user} Pronto!`)
                         return;
                     }
-                }else{
+                } else {
                     $('#LockedUser2').css("display", "none")
                     return;
                 }
-            }else{
+            } else {
                 if (User !== data.user) {
                     $('.pronto').text('Pronto')
                     $('#LockedUser').css("display", "none")
@@ -195,20 +201,20 @@ class Trade {
             }
         },
 
-        More(){
+        More() {
 
-            $("#AlertFinishTrade").on('click', '.button-box', function(e) {
-                    $("#AlertFinishTrade").css("display", "none")
-                    $("#AlertFinishTrade").empty()
-                })
+            $("#AlertFinishTrade").on('click', '.button-box', function (e) {
+                $("#AlertFinishTrade").css("display", "none")
+                $("#AlertFinishTrade").empty()
+            })
         }
 
-        }
-    
+    }
+
     Actions = {
 
-        AddItem(self, App){
-            $('.panel-block.items.owner').on('click', '.item.chifre', function(e) {
+        AddItem(self, App) {
+            $('.panel-block.items.owner').on('click', '.item.chifre', function (e) {
                 if (self.Count > 1) {
                     var QI = $("#youroferitemmoney1").text()
                     var item = parseInt(QI) + 1
@@ -225,8 +231,8 @@ class Trade {
             })
         },
 
-        RemoveItem(self, App){
-            $('.panel-block.items.is-paddingless.youoffer').on('click', '.item.chifre', function(e) {
+        RemoveItem(self, App) {
+            $('.panel-block.items.is-paddingless.youoffer').on('click', '.item.chifre', function (e) {
                 var QI = $("#youroferitemmoney1").text()
                 var item = parseInt(QI) - 1
                 App.emit(self.Routes.RemoveItems, {
@@ -242,8 +248,8 @@ class Trade {
             })
         },
 
-        Ready(self, App){
-            $('.button.mb-2.is-medium.is-success.is-fullwidth').on('click', function(e) {
+        Ready(self, App) {
+            $('.button.mb-2.is-medium.is-success.is-fullwidth').on('click', function (e) {
                 if ($(".panel-block.items.is-paddingless.youoffer").children().length > 0 && self.Count > 1) {
                     if ($(e.currentTarget).children("span.pronto").text() === "Pronto") {
                         App.emit(self.Routes.Ready, {
@@ -272,75 +278,61 @@ class Trade {
     }
 
 
-    init() {
+    init(App) {
         var Self = this
-        var App = io(this.Web)
-
-        App.on('connect', function(self = Self) {
-
-            /**
-             * Escolhendo minha sala
-             */
-            App.emit(self.Routes.RoomJoin, {
-                room: self.Room
-            })
-
-            App.on(self.Routes.RoomJoin, (data) => {
-                if (!data.status) {
-                    console.log('O Servidor recusou sua entrada no tunel.')
-                    return App.disconnect()
-                }
-                console.log('Em tunel com o Chat')
-            })
-           
+        App.on('connect', function (self = Self) {
             /**
              * Injetando items no cliente, para os dois usuarios
              */
-            App.on(self.Routes.GetItems, function(items) {
+            App.on(self.Routes.GetItems, function (items) {
                 if (items.owner !== User) {
                     self.Count = 2
-                    self.Render.Participant("Enter", items.owner)
+                    self.Render.Participant("Enter", items.owner, items.ownerDetails)
                 }
                 self.Render.ItemsRecived(items.items, items.owner)
+                $("ul.messages").css("display", "none")
+                $("ul.messages.trade").css("display", "block")
             })
+
 
             /**
              * Espelhando os items adicionados
              */
-            App.on(self.Routes.ReciveItems, function(dados){
+            App.on(self.Routes.ReciveItems, function (dados) {
                 self.Render.MirrorItem(dados)
             })
 
             /**
              *  Espelhando os items removidos
              */
-             App.on(self.Routes.RemoveItems, function(dados){
+            App.on(self.Routes.RemoveItems, function (dados) {
                 self.Render.MirrorItemRemove(dados)
             })
 
             /**
              *  Recebendo o Status do Usuario
              */
-            App.on(self.Routes.Ready, function(dados){
+            App.on(self.Routes.Ready, function (dados) {
                 self.Render.UserStatus(dados)
             })
-            
+
             /**
              * Finalizando a trade
              */
-            App.on(self.Routes.Finish, function(){
+            App.on(self.Routes.Finish, function () {
                 window.location.href = "/app/trade/finish"
             })
 
             /**
              * Enviando dados para a sessão, de cada usuario desconectado.
              */
-            App.on(self.Routes.Disconnect, function(dados) {
+            App.on(self.Routes.Disconnect, function (dados) {
                 self.Count--
                 self.Render.Participant("Leave", dados)
             })
 
         })
+      
         this.Render.SortAndSearch()
         this.Render.More()
         this.Actions.AddItem(Self, App)
@@ -350,6 +342,6 @@ class Trade {
 
 }
 
-$(document).ready(function() {
-    new Trade().init()
+$(document).ready(function () {
+    new Trade().init(AppIo)
 })

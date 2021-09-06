@@ -1,11 +1,16 @@
 {
   "Weapons": [
+    {"id": 103585, "name": "AUG A3 HALLOWEEN 2019", "category": 1, "price": 350, "img":"AUG_A3_Hallowen2019.png"},
+    {"id": 103586, "name": "SC-2010 HALLOWEEN 2019","category": 1, "price": 350, "img":"SC_2010_Hallowen2019.png"},
+    {"id": 118242, "name": "KRISS MILKYWAY",        "category": 1 , "price": 350, "img":"KRISS_MILKYWAY.png"},
+    {"id": 105147, "name": "CHEYTACM200_CUPID",     "category": 1, "price": 350, "img":"CHEYTACM200_Cupid.png"},
     {"id": 103232, "name": "AUG A3 HALLOWEEN",      "category": 1, "price": 350, "img":"undefined.png"},
     {"id": 301162, "name": "HALLOWEEN HAMMER",      "category": 1, "price": 150, "img":"undefined.png"},
     {"id": 104237, "name": "KRISSSUPERV HALLOWEEN", "category": 1, "price": 250, "img":"undefined.png"},
     {"id": 105232, "name": "Barrett M82A1 Premium", "category": 1, "price": 568, "img":"BARRET_PREMIUM.png"},
     {"id": 104132, "name": "Kriss S.V Midnight",    "category": 1, "price": 125, "img":"undefined.png"},
     {"id": 103405, "name": "AUG A3 X-MAS 2017",     "category": 1, "price": 315, "img":"undefined.png"},
-    {"id": 104534, "name": "OA 93 X-MAS 2017",      "category": 1, "price": 302, "img":"undefined.png"}
+    {"id": 104534, "name": "OA 93 X-MAS 2017",      "category": 1, "price": 302, "img":"undefined.png"},
+    {"id": 301147, "name": "KARAMBIT",              "category": 1, "price": 150, "img":"undefined.png"}
   ]
 }
