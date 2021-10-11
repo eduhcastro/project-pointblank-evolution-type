@@ -4,7 +4,9 @@ A site for the Point Blank game, with a system for exchanging items, roulettes, 
 
 ## Coming Soon :construction:
 <table>
- <td>Make Chat 90% ready</td>
+ <td>Trade 70% ready</td>
+ <td>Roullete 70% ready</td>
+ <td>Chat 90% ready</td>
  <td>Migrations will be added :white_check_mark:</td>
 </table>
 
@@ -47,5 +49,15 @@ npm run preparedb2 OR yarn run preparedb
 yarn run dev or npm run dev
 ```
 
+
+## 📄 Logs
+```
+=========== 10/10/2021 (🔨 New Features ) =============
+Roulette system added
+Private chat system in trade
+New trades are now displayed on the home as they are taken
+New trade page
+some things tidy...
+```
 
 alternative .js version (discontinued): https://github.com/skillerm/pointblank-future-nodejs
