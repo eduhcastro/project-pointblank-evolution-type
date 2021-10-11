@@ -4,7 +4,8 @@ class AppTrade{
 
   Routes = {
       RoomJoin: `RoomJoin`,
-      Load: `Load`,
+      Load: `Load::Trades`,
+      Watching: `Watching`,
   }
 
   Front = {
@@ -53,10 +54,9 @@ class AppTrade{
     }
   }
 
-  init(){
+  init(App){
     var Self = this
-    var App = io(this.Web)
-
+  
     App.on('connect', function(self = Self){
       
       /**
@@ -74,6 +74,7 @@ class AppTrade{
             console.log('O Servidor recusou sua entrada no tunel.')
             return App.disconnect()
         }
+       App.off(self.Routes.RoomJoin)
        console.log('Em tunel com as Trades')
       })
 
@@ -81,9 +82,16 @@ class AppTrade{
        * Inserindo as Sessoes no cliente
        */
       App.on(self.Routes.Load, (data) => {
-        console.log(data)
+        App.off(self.Routes.Load)
         self.insertTrades(data, self)
-        return App.disconnect(self.Routes.Load)
+      })
+
+      /**
+       * Inserindo as Sessoes no cliente
+       */
+       App.on(self.Routes.Watching, (data) => {
+         console.log(data)
+        self.insertTrades(data, self)
       })
 
     })
@@ -92,5 +100,5 @@ class AppTrade{
 }
 
 $(document).ready(function() {
-  new AppTrade().init()
+  new AppTrade().init(AppIo)
 })

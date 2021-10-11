@@ -6,6 +6,7 @@ const TradeList = {
   async handler(data: any, user: any) {
     let Sessoes = []
     for (var Sessao of data.Sessions) {
+     
       if (Sessao.owner !== user && Sessao.public === "true" && Sessao.participant === null) {
         const UserDetails = await getCustomRepository(UserEvoRepositories).findOne({
           userlogin: Sessao.owner

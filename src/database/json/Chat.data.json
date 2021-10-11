@@ -1,221 +1,242 @@
 {
     "Messages": [
         {
-            "id": 365,
-            "level": "0",
+            "id": 461,
+            "level": "999",
             "picture": "https://i.ibb.co/ymTbF2J/209302376-626903208702961-696843777548657028-n.jpg",
             "name": "eduh***",
-            "message": "😝"
+            "message": "ghj",
+            "details": [
+                {
+                    "name": "Master",
+                    "data": {
+                        "icon": "Master.png",
+                        "class": "xp_95",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 756,
-            "level": "0",
+            "id": 618,
+            "level": "999",
             "picture": "https://i.ibb.co/ymTbF2J/209302376-626903208702961-696843777548657028-n.jpg",
             "name": "eduh***",
-            "message": "zxc"
+            "message": "dfs",
+            "details": [
+                {
+                    "name": "Master",
+                    "data": {
+                        "icon": "Master.png",
+                        "class": "xp_95",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 33,
-            "level": "0",
+            "id": 606,
+            "level": "999",
             "picture": "https://i.ibb.co/ymTbF2J/209302376-626903208702961-696843777548657028-n.jpg",
             "name": "eduh***",
-            "message": "😔😔"
+            "message": "3",
+            "details": [
+                {
+                    "name": "Master",
+                    "data": {
+                        "icon": "Master.png",
+                        "class": "xp_95",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 495,
-            "level": "0",
-            "picture": "https://i.ibb.co/ymTbF2J/209302376-626903208702961-696843777548657028-n.jpg",
-            "name": "eduh***",
-            "message": "😫"
-        },
-        {
-            "id": 383,
-            "level": "0",
-            "picture": "https://i.ibb.co/ymTbF2J/209302376-626903208702961-696843777548657028-n.jpg",
-            "name": "eduh***",
-            "message": "zxczxc"
-        },
-        {
-            "id": 323,
-            "level": "0",
+            "id": 308,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "F"
+            "message": "xc",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 993,
-            "level": "0",
+            "id": 630,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "G"
+            "message": "121",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 32,
-            "level": "0",
+            "id": 750,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "F"
+            "message": "😔",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 63,
-            "level": "0",
+            "id": 932,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "uy"
+            "message": "asd",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 826,
-            "level": "0",
+            "id": 137,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "j"
+            "message": "zxc",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 198,
-            "level": "0",
+            "id": 177,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "z"
+            "message": "zx",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 432,
-            "level": "0",
+            "id": 489,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "f"
+            "message": "asd",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 179,
-            "level": "0",
+            "id": 704,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "vv"
+            "message": "qwe",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 77,
-            "level": "0",
+            "id": 769,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "tyu"
+            "message": "xc",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 455,
-            "level": "0",
+            "id": 101,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "z"
+            "message": "asd",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         },
         {
-            "id": 669,
-            "level": "0",
+            "id": 905,
+            "level": "1",
             "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
             "name": "amandi***",
-            "message": "dd"
-        },
-        {
-            "id": 116,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "eeee"
-        },
-        {
-            "id": 483,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "z"
-        },
-        {
-            "id": 40,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "fg"
-        },
-        {
-            "id": 702,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "ty"
-        },
-        {
-            "id": 460,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "g"
-        },
-        {
-            "id": 43,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "zxc"
-        },
-        {
-            "id": 621,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "a"
-        },
-        {
-            "id": 34,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "tyu"
-        },
-        {
-            "id": 809,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "ccc"
-        },
-        {
-            "id": 259,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "z"
-        },
-        {
-            "id": 80,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "😔"
-        },
-        {
-            "id": 712,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "😔"
-        },
-        {
-            "id": 497,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "😍"
-        },
-        {
-            "id": 712,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "😔"
-        },
-        {
-            "id": 654,
-            "level": "0",
-            "picture": "https://studiosol-a.akamaihd.net/tb/letras-blog/wp-content/uploads/2020/12/7a0989c-frases_sidoka_1390x780-150x150.jpg",
-            "name": "amandi***",
-            "message": "😞"
+            "message": "qwewq",
+            "details": [
+                {
+                    "name": "Iniciante 2",
+                    "data": {
+                        "icon": "bronze.png",
+                        "class": "xp_50",
+                        "effects": []
+                    }
+                }
+            ]
         }
     ]
 }

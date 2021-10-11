@@ -1,4 +1,5 @@
 import NodeJsonCore from "../../../core/NodeJson.core";
+import RanksCore from "../../../core/Ranks.core";
 import { getCustomRepository } from "typeorm";
 import { UserEvoRepositories } from "../../../repositories/UserEvo.repositorie";
 
@@ -31,13 +32,20 @@ export default function(io: any, socket: any){
     const User = await getCustomRepository(UserEvoRepositories).findOne({
      userlogin: userInfo.login
     })
-  
+    
+    const rankUse = new RanksCore();
+    const UserExp = await rankUse.updateUserRank(User, 2)
+
     const messageOpts = {
         id: Math.floor(Math.random() * (999 - 0 + 1)) + 0,
         level: User?.level,
         picture: User?.picture,
         name: userInfo.login.slice(0, -3)+'***',
         message: message.message,
+        details: [{
+            name: UserExp.name,
+            data: UserExp.data
+        }]
       }
 
       if(typeof message.token !== 'undefined'){

@@ -1,67 +1,9 @@
-<head>
-   <title>PointBlank Future</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-   <link rel="stylesheet" href='/css/cssNewNew.css?v=10' />
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-   <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
-   <link rel="stylesheet" href="/vendor/emojionearea/emojionearea.min.css">
-   <script type="text/javascript" src="/vendor/emojionearea/emojionearea.min.js"></script>
-   <script>
-      var user = '<%= user.name %>'
-   </script>
-</head>
+<%- include('../../../../includes/Head_include'); %>
 
-<body>
-   <div id="router-container">
-      <div class="viewport normal-design ">
-         <div class="sc-bTDOke dXiuJH winter--snow_background">
-            <button class="sc-dsXzNU iqNwfp burger">
-               <div></div>
-               <div></div>
-               <div></div>
-            </button>
-            <div class="sc-lbVvki ghCdOs">
-               <div class="sc-dFRpbK bFgzLZ"><a aria-current="page" class="logo active" href="/">
-                     <img src="https://www.pikpng.com/pngl/b/54-540351_point-blank-pointblank-png-clipart.png"
-                        alt="Gamdom Logo" width="50"></a>
-               </div>
-               <div class="sc-hOPeYd eXirsP" style="border-bottom: solid; background-color: transparent;"><a
-                     href="#">Cases</a></div>
-            </div>
-            <% if (!user.name) { %>
-               <div class="sc-fXazdy UjHkE">
-                  <div class="sc-fuISkM cHQuCr">
-                     <div class="sc-cOifOu haQoIp" style="background-color: transparent;"><button
-                           class="sc-hTRkXV sc-hhIiOg sc-eirqVv enlJuL iwisNA dSzotL">Login</button></div>
-                  </div>
-               </div>
-               <% }else{ %>
-                  <div class="sc-fXazdy UjHkE">
-                     <div class="sc-fuISkM cHQuCr">
-                        <div class="dropdown text-end">
-                           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              <img src="<%= user.personalization[0].picture %>" alt="mdo" width="32" height="32"
-                                 class="rounded-circle" />
-                           </a>
-                           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                              <li><a class="dropdown-item" href="#">New project...</a></li>
-                              <li><a class="dropdown-item" href="#">Settings</a></li>
-                              <li><a class="dropdown-item" href="#">Profile</a></li>
-                              <li>
-                                 <hr class="dropdown-divider" />
-                              </li>
-                              <li><a class="dropdown-item logout" href="#">Sign out</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <% }%>
-         </div>
+   <body>
+      <div id="router-container">
+         <div class="viewport normal-design ">
+            <%- include('../../../../includes/Navbar_include', { user }); %>
          <div class="site_content site_content--winter">
             <div class="section_left" tabindex="0">
                <div class="chat_section">

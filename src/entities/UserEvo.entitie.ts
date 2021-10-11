@@ -13,7 +13,7 @@ class UserEvo {
   id!: number;
 
   @Column()
-  level!: string;
+  level!: number;
 
   @Column()
   userlogin!: string;
@@ -21,6 +21,8 @@ class UserEvo {
   @Column()
   picture!: string;
 
+  @Column()
+  exp!: number
 }
 
 export { UserEvo };

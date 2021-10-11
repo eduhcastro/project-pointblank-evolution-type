@@ -11,11 +11,15 @@ export default async function (io: any, socket: any) {
       socket.join('Trades')
 
       const user = typeof socket.handshake.session.user !== 'undefined' ? socket.handshake.session.user.login : null
-      io.to('Trades').to(socket.id).emit('Load', {
+      io.to('Trades').to(socket.id).emit('Load::Trades', {
         Sessoes: await TradeListCore.handler(NodeJsonCore.getData({ data: "Sessions" }), user)
       })
     }
   })
 
-
+  socket.on('Notice', async function (user: any) {
+    io.to('Trades').emit('Watching', {
+      Sessoes: await TradeListCore.handler(NodeJsonCore.getData({ data: "Sessions" }), user)
+    })
+  })
 }

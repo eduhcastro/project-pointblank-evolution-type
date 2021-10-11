@@ -39,7 +39,7 @@ class AppChat{
                 if (typeof $('*[data-message="' + Messages.id + '"]').html() === 'undefined') {
                     $(".chat_msgs > ul.messages.global").append(` <li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message">
                     <div class="colorbar user"></div>
-                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
+                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="${Messages.details[0].data.class}"><img src="/images/ranks/${Messages.details[0].data.icon}" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
                     </li>`)
                     $('.chat_msgs > ul.messages.global > li').last().addClass('active-li').focus();
                     $('.chat_msgs > ul.messages.global > li').removeClass('active-li')
@@ -96,7 +96,7 @@ class AppChat{
                 if (typeof $('*[data-message="' + Messages.id + '"]').html() === 'undefined') {
                     $(".chat_msgs > ul.messages.trade").append(` <li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message">
                     <div class="colorbar user"></div>
-                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
+                    <span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="${Messages.details[0].data.class}"><img src="/images/ranks/${Messages.details[0].data.icon}" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span>
                     </li>`)
                     $('.chat_msgs > ul.messages.trade > li').last().addClass('active-li').focus();
                     $('.chat_msgs > ul.messages.trade > li').removeClass('active-li')
@@ -190,6 +190,7 @@ class AppChat{
                     console.log('O Servidor recusou sua entrada no tunel.')
                     return App.disconnect()
                 }
+                App.off(self.Routes.RoomJoin)
                 console.log('Em tunel com o Chat')
             })
 
@@ -216,7 +217,7 @@ class AppChat{
              * Recebendo Mensagem
              */
             App.on(self.Routes.Message, (Messages) => {
-                $(".chat_msgs > ul.messages.global").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
+                $(".chat_msgs > ul.messages.global").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="${Messages.details[0].data.class}"><img src="/images/ranks/${Messages.details[0].data.icon}" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
                 $('.chat_msgs > ul.messages.global > li').last().addClass('active-li').focus();
                 $('.chat_msgs > ul.messages.global > li').removeClass('active-li')
                 $('.chat_msgs > ul.messages.global > li').removeAttr("tabindex")
@@ -226,7 +227,7 @@ class AppChat{
              * Recebendo Mensagem
              */
              App.on(self.Routes.MessageTrade(), (Messages) => {
-                $(".chat_msgs > ul.messages.trade").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="xp_60"><img src="/images/ranks/bronze.png" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
+                $(".chat_msgs > ul.messages.trade").append(`<li tabindex="1" data-message="${Messages.id}" class="chat_msg msg-user-message"><div class="colorbar user"></div><span class="user chat_user"><span class="chat_user_prof"><img src="${Messages.picture}"></span><span class="${Messages.details[0].data.class}"><img src="/images/ranks/${Messages.details[0].data.icon}" alt="Rust - lvl 17"/><span class="level_val">${Messages.level}</span></span><a class="chat_user_name">${Messages.name}</a><span class="chat_user_ico"><span class="chat_user_colen">:</span></span></span><span class="chat_cont">${Messages.message}</span></li>`)
                 $('.chat_msgs > ul.messages.trade > li').last().addClass('active-li').focus();
                 $('.chat_msgs > ul.messages.trade > li').removeClass('active-li')
                 $('.chat_msgs > ul.messages.trade > li').removeAttr("tabindex")

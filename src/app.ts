@@ -36,6 +36,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
-webSocketServices(io)
+const Socket = new webSocketServices()
+Socket.init(io)
 
 export default httpServer
